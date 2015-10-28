@@ -430,7 +430,7 @@ namespace QuestionEditor
         #region Preview
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
-            var tempFileName = "D:\\";
+            var tempFileName = Directory.GetCurrentDirectory();
             var test = new XElement("Test");
             test.SetAttributeValue("TestName", tempFileName + "test.xml");
 
