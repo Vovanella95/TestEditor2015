@@ -1,0 +1,53 @@
+.example
+{
+	margin: auto;
+	margin-top: 10px;
+	width: 100%;
+	max-width: 800px;
+	background-color: #FEFEFE;
+	border: solid 1px #AAAAAA;
+}
+
+.header
+{
+	background-color: #444444;
+	color:white;
+	font-size: 22px;
+	text-align: center;
+}
+
+.textofquestion
+{
+	padding: 5px;
+}
+
+.choiser
+{
+	padding: 5px;
+}
+
+.submitter
+{
+	border: none;
+	background-color: green;
+	color: white;
+	cursor: pointer;
+}
+
+header
+{
+	width: 100%;
+	height: 40px;
+	background-color: #333333;
+	line-height: 40px;
+	font-size: 24px;
+	color: white;
+	padding: 5px;
+}
+
+body
+{
+	padding:0;
+	border:0;
+	margin:0;
+}
