@@ -537,20 +537,22 @@ namespace QuestionEditor
             string html = string.Empty;
             var questions = root.Descendants("Question").Skip(1).ToArray();
 
+            int ind = 1;
             foreach (var item in questions)
             {
-                html += QuestionToHtml(item);
+                html += QuestionToHtml(item, ind);
+                ind++;
             }
-            return "<html><head><meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" href=\"" + TestName + "/style.css\"></head><body><header>TEST - предпросмотр</header> " + html + " </body></html>";
+            return "<html><head><meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" href=\"" + TestName + "/style.css\"></head><body style=\"background:#DDDDDD\"><header>TEST - предпросмотр</header> " + html + " </body></html>";
         }
 
-        private string QuestionToHtml(XElement question)
+        private string QuestionToHtml(XElement question, int num)
         {
             string codeBegin = "<div class=\"example\">\n";
             string codeEnd = "</div>\n\n\n";
 
             //header
-            string codeHeader = "<div class=\"header\">" + question.Descendants("TextOfQuestion").ToArray()[1].Attribute("SymplyText").Value + " </div>\n\n";
+            string codeHeader = "<div class=\"header\">" + num + ". " + question.Descendants("TextOfQuestion").ToArray()[1].Attribute("SymplyText").Value + " </div>\n\n";
             //text of question
             string codeToq = "<div class=\"textofquestion\">\n";
             foreach (var item in question.Descendants("TextOfQuestion").Skip(2))
@@ -560,7 +562,6 @@ namespace QuestionEditor
             codeToq += "</div>\n";
 
             //Choise
-
             string codeChoise = "";
             if (question.Element("Choice").Element("ChoiseUnit") != null)
             {
@@ -568,7 +569,7 @@ namespace QuestionEditor
             }
 
             // submitter
-            string codeSubmiter = "<input type=\"submit\" class=\"submitter\" value=\"Submit\"/>\n";
+            string codeSubmiter = "<div class=\"submitter\"><center><input type=\"submit\" value=\"Submit\"/></center></div>\n";
 
             return codeBegin + codeHeader + codeToq + codeChoise + codeSubmiter + codeEnd;
 
