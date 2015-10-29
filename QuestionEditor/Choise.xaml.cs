@@ -76,7 +76,7 @@ namespace QuestionEditor
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             result = "[Choice\n";
-
+            result += "[IsRandom = \"" + IsRandom.IsChecked + "\"]\n";
             foreach (ListBoxItem item in choices.Items)
             {
                 result += "[Text = \"" + ((Label)((StackPanel)item.Content).Children[0]).Content + "\" ";
@@ -84,6 +84,11 @@ namespace QuestionEditor
             }
             result += "]";
             this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

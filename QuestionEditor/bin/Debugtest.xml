@@ -1,23 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="2">
+<Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="1">
   <Question>
     <Question Code="0" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
-      </TextOfQuestion>
-      <Choice />
-    </Question>
-    <Question Code="1" Difficulty="1" NumberOfTexts="2">
-      <TextOfQuestion>
-        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="  дермецо еще то  " Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText=" Текст вопроса  " Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice>
-        <ChoiseUnit>
+        <ChoiseUnit IsRandom="True">
+          <ChoiceUnit Text="Новый элемент" Value="True" />
           <ChoiceUnit Text="Новый элемент" Value="False" />
+          <ChoiceUnit Text="Новый элемент" Value="True" />
           <ChoiceUnit Text="Новый элемент" Value="False" />
-          <ChoiceUnit Text="Новый элемент" Value="False" />
+          <ChoiceUnit Text="Новый элемент" Value="True" />
         </ChoiseUnit>
       </Choice>
     </Question>

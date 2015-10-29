@@ -254,7 +254,7 @@ namespace QuestionEditor
 
                 if (item.Substring(0, 11) == "[Difficulty")
                 {
-                    a.SetAttributeValue("Difficulty", 1);
+                    a.SetAttributeValue("Difficulty", GetValue(item, "Difficulty"));
                     ind--;
                 }
 
@@ -344,8 +344,9 @@ namespace QuestionEditor
         {
             var t = SplitText(src.Substring(1)).Where(w => w[0] == '[').ToArray();
             var choiceUnit = new XElement("ChoiseUnit");
+            choiceUnit.SetAttributeValue("IsRandom", GetValue(t[0], "IsRandom"));
 
-            foreach (var item in t)
+            foreach (var item in t.Skip(1))
             {
                 choiceUnit.Add(ChoiseItemToString(item));
             }
