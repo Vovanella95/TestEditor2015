@@ -43,7 +43,6 @@ C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\QuestionEditor.pdb
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debug\QuestionEditor.exe
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debug\QuestionEditor.pdb
-C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\QuestionEditor.csprojResolveAssemblyReference.cache
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\Authors.g.cs
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\Choise.g.cs
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\FontSelector.g.cs
@@ -60,3 +59,7 @@ C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\QuestionEditor.g.resources
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\QuestionEditor.Properties.Resources.resources
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\QuestionEditor.csproj.GenerateResource.Cache
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\Mark.g.cs
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\Mark.baml
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\YesNo.g.cs
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\YesNo.baml

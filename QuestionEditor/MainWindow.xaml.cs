@@ -30,11 +30,54 @@ namespace QuestionEditor
         public List<string> States = new List<string>();
         public int CurrentStateIndex = 0;
         public int CurrentTextChanged = 0;
+        public List<Tuple<string, string>> Preambula { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             FixProperties();
+
+            Preambula = new List<Tuple<string, string>>();
+            LoadPreambula();
+            UpdateRemarks();
+        }
+
+        private void LoadPreambula()
+        {
+            Preambula.Add(new Tuple<string, string>("Название теста", "Новый тест"));
+            Preambula.Add(new Tuple<string, string>("Дата создания", DateTime.UtcNow.ToShortDateString()));
+            Preambula.Add(new Tuple<string, string>("Темы, включенные в текст", "Тема1, Тема2, Тема3"));
+        }
+
+        private void UpdateRemarks()
+        {
+            Remarks.Items.Clear();
+            foreach (var item in Preambula)
+            {
+                var textitem = new ListBoxItem();
+                textitem.MouseUp += Textitem_MouseUp;
+                textitem.Width = 200;
+                var text = new TextBlock();
+                text.Text = item.Item1 + ": " + item.Item2;
+                text.TextWrapping = TextWrapping.Wrap;
+                textitem.Content = text;
+                Remarks.Items.Add(textitem);
+            }
+        }
+
+        private void Textitem_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var send = (TextBlock)((ListBoxItem)sender).Content;
+            var temp = SplitProperties(send.Text);
+            var m = new Mark(temp.Item1, temp.Item2);
+            m.ShowDialog();
+            ((TextBlock)((ListBoxItem)sender).Content).Text = m.name + ": " + m.value;
+        }
+
+        private Tuple<string, string> SplitProperties(string src)
+        {
+            int ind = src.IndexOf(":");
+            return new Tuple<string, string>(src.Substring(0, ind), src.Substring(ind + 2));
         }
 
         private void FixProperties()
@@ -43,15 +86,16 @@ namespace QuestionEditor
             {
                 double h = SystemParameters.PrimaryScreenHeight;
                 double w = SystemParameters.PrimaryScreenWidth;
-                QuestionsStack.Height = h - 110;
+                QuestionsStack.Height = h - 125;
             }
             else
             {
-                QuestionsStack.Height = 768 - 140;
+                QuestionsStack.Height = 768 - 155;
             }
         }
 
         #region Events
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             States.Clear();
@@ -64,7 +108,7 @@ namespace QuestionEditor
             question.Content = NumberOfQuestions + ". " + question.Title;
             question.Selected += Question_Selected;
             question.Number = NumberOfQuestions;
-            question.Text = "Текст вопроса";
+            question.Text = "[Difficulty = \"1\"]\nТекст вопроса";
 
             Questions.Items.Add(question);
             Questions.SelectedItem = question;
@@ -205,6 +249,12 @@ namespace QuestionEditor
                 if (item.Substring(0, 7) == "[Choice")
                 {
                     choise.Add(ChoiseToString(item));
+                    ind--;
+                }
+
+                if (item.Substring(0, 11) == "[Difficulty")
+                {
+                    a.SetAttributeValue("Difficulty", 1);
                     ind--;
                 }
 
@@ -360,6 +410,15 @@ namespace QuestionEditor
             var test = new XElement("Test");
             test.SetAttributeValue("TestName", sd.FileName);
 
+            var preambula = new XElement("Preambula");
+            foreach (var item in Preambula)
+            {
+                var temp = new XElement("PreambulaItem");
+                temp.SetAttributeValue("Name", item.Item1);
+                temp.SetAttributeValue("Value", item.Item2);
+                preambula.Add(temp);
+            }
+            test.Add(preambula);
 
             var question = new XElement("Question");
             int ind = 0;
@@ -378,8 +437,9 @@ namespace QuestionEditor
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult dialogResult = System.Windows.MessageBox.Show("Уверены, что хотите удалить этот вопрос?", "Подтверждение удаления", MessageBoxButton.YesNo);
-            if (dialogResult == MessageBoxResult.No)
+            YesNo yn = new YesNo("Удалить вопрос?", "Вы уверены в том, что хотите удалить этот вопрос? Отменить это будет невозможно");
+            yn.ShowDialog();
+            if (!yn.result)
             {
                 return;
             }
@@ -418,6 +478,12 @@ namespace QuestionEditor
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            YesNo yn = new YesNo("Выход из приложения", "Вы действительно хотите выйти? Результат может быть утерян");
+            yn.ShowDialog();
+            if (!yn.result)
+            {
+                return;
+            }
             this.Close();
         }
 
@@ -688,7 +754,7 @@ namespace QuestionEditor
 
         private void FillStates()
         {
-            if(States.Count > 200)
+            if (States.Count > 200)
             {
                 States = States.Skip(50).ToList();
                 CurrentStateIndex = States.Count;
@@ -696,6 +762,14 @@ namespace QuestionEditor
         }
 
         #endregion
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            var m = new Mark("название", "значение");
+            m.ShowDialog();
+            Preambula.Add(new Tuple<string, string>(m.name, m.value));
+            UpdateRemarks();
+        }
     }
 
 

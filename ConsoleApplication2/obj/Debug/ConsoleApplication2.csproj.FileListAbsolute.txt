@@ -13,3 +13,5 @@ C:\Users\Uladzimir_Paliukhovi\Desktop\ConsoleApplication2\ConsoleApplication2\ob
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe.config
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
