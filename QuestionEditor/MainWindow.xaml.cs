@@ -182,6 +182,7 @@ namespace QuestionEditor
             NumberOfQuestions = 0;
             LoadPreambula();
             UpdateRemarks();
+            MiddleEditor.IsEnabled = false;
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -779,6 +780,70 @@ namespace QuestionEditor
             Preambula.Add(new Tuple<string, string>(m.name, m.value));
             UpdateRemarks();
         }
+
+
+        #region OpenFile
+
+        private void MenuItem_Click_17(object sender, RoutedEventArgs e)
+        {
+            var od = new OpenFileDialog();
+            od.ShowDialog();
+
+            if (string.IsNullOrEmpty(od.FileName))
+            {
+                return;
+            }
+
+            XElement root;
+
+            try
+            {
+                root = XElement.Load(od.FileName);
+            }
+            catch (Exception ex)
+            {
+                YesNo yn = new YesNo("Некорректный файл", "Файл, который вы пытаетесь загрузить, загружен некорректно, ошибка \"" + ex.Message + "\"");
+                yn.ShowDialog();
+            }
+
+
+
+
+        }
+
+
+        private void LoadQuestions(XElement root)
+        {
+            var questions = root.Descendants("Question").Skip(1).ToArray();
+
+            foreach (var q in questions)
+            {
+                NumberOfQuestions++;
+                var question = new Question();
+                question.Title = "Новый вопрос";
+                question.Content = NumberOfQuestions + ". " + question.Title;
+                question.Selected += Question_Selected;
+                question.Number = NumberOfQuestions;
+                question.Text = "[Difficulty = \"1\"]\nТекст вопроса";
+
+                Questions.Items.Add(question);
+                Questions.SelectedItem = question;
+
+                MiddleEditor.IsEnabled = true;
+            }
+        }
+
+        private Question XmlToQuestion(XElement q)
+        {
+            var question = new Question();
+            question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value;
+            question.Difficulty = Convert.ToInt32(q.Attribute("Difficulty").Value);
+
+            throw new NotImplementedException();
+        }
+
+
+        #endregion
     }
 
 
