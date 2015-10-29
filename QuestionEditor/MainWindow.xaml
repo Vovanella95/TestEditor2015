@@ -11,7 +11,7 @@
             <Grid Height="40" Background="#FF3A3A3A">
                 <Image Source="Images/logo.png" HorizontalAlignment="Left" Margin="5,0,0,0"/>
                 <Button Content="x" Width="30" Height="30" Margin="0,5,5,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FFE85151" Foreground="White" FontSize="16" Click="Button_Click_1" VerticalAlignment="Top"/>
-                <Button Content="◻" Width="30" Height="30" Margin="0,0,35,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FF5B5B5B" Foreground="White" FontSize="16" Click="Button_Click_2"/>
+                <Button Content="◻" Width="30" Height="30" Margin="0,5,35,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FF5B5B5B" Foreground="White" FontSize="16" Click="Button_Click_2" VerticalAlignment="Top"/>
                 <Button Content="_" Width="30" Height="30" Margin="0,0,65,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FFA8A8A8" Foreground="White" FontSize="16" Click="Button_Click_3"/>
             </Grid>
             <Menu x:Name="menu" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#FF3A3A3A" Foreground="#FFE2E2E2">
@@ -43,9 +43,9 @@
                         <Button x:Name="button3" Content="&lt;" VerticalAlignment="Center" HorizontalAlignment="Left" Width="15" Height="75" Background="White" Margin="-1,0,0,0" Click="button3_Click" BorderBrush="#FFF1F1F1" Foreground="#FFACACAC"/>
                     </StackPanel>
                 </Grid>
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15,0,0,0">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15,0,0,0" Name="MiddleEditor" IsEnabled="False" Width="388">
                     <StackPanel>
-                        <TextBox x:Name="questionTitle" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" FontSize="21.333"/>
+                        <TextBox x:Name="questionTitle" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,5,0,0">
                             <Button Width="30" Height="30" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_4" >
                                 <Image Source="Images/glyphicons-103-bold.png" Width="15" Height="15"/>
@@ -113,27 +113,29 @@
                                 <Image Source="Images/glyphicons-212-right-arrow.png" Width="15" Height="15"/>
                             </Button>
                         </StackPanel>
-                        <TextBox x:Name="QuestionText" TextChanged="QuestionText_TextChanged" Width="500" Margin="0,-1,0,0" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="532" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" BorderBrush="#FF9C9C9C"/>
+                        <TextBox x:Name="QuestionText" TextChanged="QuestionText_TextChanged" Margin="0,-1,0,0" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="532" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF9C9C9C"/>
                         <Grid>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <Button x:Name="input" Content="Текст" VerticalAlignment="Top" Width="83" Height="40" Click="input_Click" IsEnabled="False"/>
-                                <Button x:Name="image" Content="Картинка" VerticalAlignment="Top" Width="75" Height="40" Click="image_Click" IsEnabled="False"/>
-                                <Button x:Name="choise" Content="Выбор" VerticalAlignment="Top" Width="79" Height="40" Click="choise_Click" IsEnabled="False"/>
+                                <Button x:Name="input" Content="Текст" VerticalAlignment="Top" Width="83" Height="40" Click="input_Click"/>
+                                <Button x:Name="image" Content="Картинка" VerticalAlignment="Top" Width="75" Height="40" Click="image_Click"/>
+                                <Button x:Name="choise" Content="Выбор" VerticalAlignment="Top" Width="79" Height="40" Click="choise_Click"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button x:Name="button2" Content="Сохранить" VerticalAlignment="Top" Width="94" Click="button2_Click" Height="40" Background="#FF6BBF6B" Foreground="White" IsEnabled="False"/>
-                                <Button x:Name="button1" Content="x" VerticalAlignment="Top" Width="43" Height="40" FontSize="24" Foreground="White" Background="#FFF06D6D" IsEnabled="False" Click="button1_Click"/>
+                                <Button x:Name="button2" Content="Сохранить" VerticalAlignment="Top" Width="94" Click="button2_Click" Height="40" Background="#FF6BBF6B" Foreground="White"/>
+                                <Button x:Name="button1" Content="x" VerticalAlignment="Top" Width="43" Height="40" FontSize="24" Foreground="White" Background="#FFF06D6D" Click="button1_Click"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
                 </Grid>
-                <Grid Width="210" Margin="10,0,0,0">
+                <Grid Width="210" Margin="10,0,0,0" Name="RemarksGrid">
                     <StackPanel>
                         <TextBlock x:Name="QuestionNumber" Text="Текущий вопрос 1" />
                         <TextBlock x:Name="QuestionCount" Text="Всего вопросов 0" />
                         <TextBlock Text="Заметки" Margin="0,16,0,0" HorizontalAlignment="Right"/>
-                        <ListBox Name="Remarks">
-                        </ListBox>
+                        <ScrollViewer Height="534" Name="RemarksList">
+                            <ListBox Name="Remarks">
+                            </ListBox>
+                        </ScrollViewer>
                     </StackPanel>
                     <Button Content="+" VerticalAlignment="Bottom" FontSize="24" Background="#FF81C771" Foreground="White" Click="Button_Click_9"/>
                 </Grid>

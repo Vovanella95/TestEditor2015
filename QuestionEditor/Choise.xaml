@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Background="#FFF3F3F3">
             <Grid Height="40" Background="#FF3A3A3A" VerticalAlignment="Top">
-                <Image Source="Images/logo.png" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Text="Редактирование вариантов ответа" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="10,0,0,0"/>
             </Grid>
             <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
                 <StackPanel>

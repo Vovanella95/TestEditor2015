@@ -37,5 +37,10 @@ namespace QuestionEditor
             value = textBox1.Text;
             Close();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

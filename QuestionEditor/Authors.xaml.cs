@@ -21,16 +21,17 @@ namespace QuestionEditor
     {
         public Authors()
         {
-            // 210 40
             InitializeComponent();
-            double h = SystemParameters.PrimaryScreenHeight;
-
-            MainGrid.Margin = new Thickness(0, (h-40)/2 - 150, 0, 0);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

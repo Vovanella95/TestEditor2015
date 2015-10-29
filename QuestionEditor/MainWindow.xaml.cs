@@ -44,8 +44,9 @@ namespace QuestionEditor
 
         private void LoadPreambula()
         {
+            Preambula.Clear();
             Preambula.Add(new Tuple<string, string>("Название теста", "Новый тест"));
-            Preambula.Add(new Tuple<string, string>("Дата создания", DateTime.UtcNow.ToShortDateString()));
+            Preambula.Add(new Tuple<string, string>("Дата создания", DateTime.UtcNow.ToString()));
             Preambula.Add(new Tuple<string, string>("Темы, включенные в текст", "Тема1, Тема2, Тема3"));
         }
 
@@ -56,7 +57,7 @@ namespace QuestionEditor
             {
                 var textitem = new ListBoxItem();
                 textitem.MouseUp += Textitem_MouseUp;
-                textitem.Width = 200;
+                textitem.Width = 189;
                 var text = new TextBlock();
                 text.Text = item.Item1 + ": " + item.Item2;
                 text.TextWrapping = TextWrapping.Wrap;
@@ -87,10 +88,18 @@ namespace QuestionEditor
                 double h = SystemParameters.PrimaryScreenHeight;
                 double w = SystemParameters.PrimaryScreenWidth;
                 QuestionsStack.Height = h - 125;
+                QuestionText.Height = h - 195;
+                RemarksGrid.Height = h - 96;
+                MiddleEditor.Width = w - 210 - 250 - 60;
+                RemarksList.Height = h - 194;
             }
             else
             {
                 QuestionsStack.Height = 768 - 155;
+                QuestionText.Height = 543;
+                RemarksGrid.Height = 646;
+                MiddleEditor.Width = 505;
+                RemarksList.Height = 547;
             }
         }
 
@@ -113,13 +122,7 @@ namespace QuestionEditor
             Questions.Items.Add(question);
             Questions.SelectedItem = question;
 
-            QuestionText.IsEnabled = true;
-            questionTitle.IsEnabled = true;
-            button2.IsEnabled = true;
-            input.IsEnabled = true;
-            image.IsEnabled = true;
-            choise.IsEnabled = true;
-            button1.IsEnabled = true;
+            MiddleEditor.IsEnabled = true;
         }
 
         private void Question_Selected(object sender, RoutedEventArgs e)
@@ -177,6 +180,8 @@ namespace QuestionEditor
             Questions.Items.Clear();
             Images.Clear();
             NumberOfQuestions = 0;
+            LoadPreambula();
+            UpdateRemarks();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
