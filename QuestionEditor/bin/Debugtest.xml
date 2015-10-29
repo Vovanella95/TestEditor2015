@@ -4,7 +4,7 @@
     <Question Code="0" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText=" &lt;label style=&quot;font-size:32px&quot;&gt;Текст вопроса gffdgdfgdfgfdg dfgfdgdfgfdgfdgfdgdfgdfg&lt;/label&gt;" Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>

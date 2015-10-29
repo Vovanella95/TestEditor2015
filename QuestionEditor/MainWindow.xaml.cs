@@ -473,11 +473,13 @@ namespace QuestionEditor
             {
                 QuestionsGrid.Margin = new Thickness(-250, 0, 0, 0);
                 button3.Content = ">";
+                MiddleEditor.Width += 260;
             }
             else
             {
                 QuestionsGrid.Margin = new Thickness(10, 0, 0, 0);
                 button3.Content = "<";
+                MiddleEditor.Width -= 260;
             }
             hidden = !hidden;
         }
