@@ -8,8 +8,7 @@
         Title="YesNo" Height="200" Width="450" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" BorderBrush="#FF666666" Background="#FFF3F3F3">
     <Grid Background="#FFF9F9F9">
         <Grid Height="40" Background="#FF3A3A3A" VerticalAlignment="Top">
-            <Image Source="Images/logo.png" HorizontalAlignment="Left" Margin="5,0,0,0"/>
-            <TextBlock Text="{Binding Title, ElementName=window}" FontSize="16" Margin="113,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="{Binding Title, ElementName=window}" FontSize="18" Margin="5,0,5,0" VerticalAlignment="Center" Foreground="White"/>
         </Grid>
 
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="8,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="85" Width="432"/>

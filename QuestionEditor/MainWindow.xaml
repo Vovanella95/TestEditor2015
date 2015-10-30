@@ -10,6 +10,7 @@
         <StackPanel>
             <Grid Height="40" Background="#FF3A3A3A">
                 <Image Source="Images/logo.png" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <TextBlock Name="FileTitle" HorizontalAlignment="Center"  Foreground="White" Text="Новый документ" VerticalAlignment="Center" FontSize="18"/>
                 <Button Content="x" Width="30" Height="30" Margin="0,5,5,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FFE85151" Foreground="White" FontSize="16" Click="Button_Click_1" VerticalAlignment="Top"/>
                 <Button Content="◻" Width="30" Height="30" Margin="0,5,35,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FF5B5B5B" Foreground="White" FontSize="16" Click="Button_Click_2" VerticalAlignment="Top"/>
                 <Button Content="_" Width="30" Height="30" Margin="0,0,65,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FFA8A8A8" Foreground="White" FontSize="16" Click="Button_Click_3"/>
@@ -19,6 +20,7 @@
                     <MenuItem Header="Создать" Foreground="#FF212121" Click="MenuItem_Click"/>
                     <MenuItem Header="Открыть" Foreground="#FF212121" Click="MenuItem_Click_17"/>
                     <MenuItem Header="Сохранить" Foreground="#FF212121" Click="MenuItem_Click_2"/>
+                    <MenuItem Header="Сохранить как..." Foreground="#FF212121" Click="MenuItem_Click_18" />
                     <MenuItem Header="Выход" Foreground="#FF212121" Click="MenuItem_Click_1"/>
                 </MenuItem>
                 <MenuItem Header="Просмотр" Foreground="#FFE2E2E2">
@@ -121,7 +123,7 @@
                                 <Button x:Name="choise" Content="Выбор" VerticalAlignment="Top" Width="79" Height="40" Click="choise_Click"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button x:Name="button2" Content="Сохранить" VerticalAlignment="Top" Width="94" Click="button2_Click" Height="40" Background="#FF6BBF6B" Foreground="White"/>
+                                <Button x:Name="button2" Content="Сохранить" Width="94" Click="button2_Click" Background="#FF6BBF6B" Foreground="White" Height="40" VerticalAlignment="Top"/>
                                 <Button x:Name="button1" Content="x" VerticalAlignment="Top" Width="43" Height="40" FontSize="24" Foreground="White" Background="#FFF06D6D" Click="button1_Click"/>
                             </StackPanel>
                         </Grid>

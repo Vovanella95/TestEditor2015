@@ -64,3 +64,5 @@ C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\YesNo.g.cs
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\YesNo.baml
 C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\QuestionEditor.csprojResolveAssemblyReference.cache
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\OkMessage.g.cs
+C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\obj\Debug\OkMessage.baml

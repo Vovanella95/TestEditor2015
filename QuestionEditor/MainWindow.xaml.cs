@@ -31,6 +31,8 @@ namespace QuestionEditor
         public int CurrentStateIndex = 0;
         public int CurrentTextChanged = 0;
         public List<Tuple<string, string>> Preambula { get; set; }
+        private string CurrentDirectory = null;
+        private string CurrentFileName = null;
 
         public MainWindow()
         {
@@ -69,10 +71,16 @@ namespace QuestionEditor
         private void Textitem_MouseUp(object sender, MouseButtonEventArgs e)
         {
             var send = (TextBlock)((ListBoxItem)sender).Content;
+
+            var el = Preambula.First(w => w.Item1 == SplitProperties(send.Text).Item1);
+
             var temp = SplitProperties(send.Text);
             var m = new Mark(temp.Item1, temp.Item2);
             m.ShowDialog();
-            ((TextBlock)((ListBoxItem)sender).Content).Text = m.name + ": " + m.value;
+
+            Preambula = Preambula.Where(w => w.Item1 != el.Item1).ToList();
+            Preambula.Add(new Tuple<string, string>(m.name, m.value));
+            UpdateRemarks();
         }
 
         private Tuple<string, string> SplitProperties(string src)
@@ -183,6 +191,9 @@ namespace QuestionEditor
             LoadPreambula();
             UpdateRemarks();
             MiddleEditor.IsEnabled = false;
+            FileTitle.Text = "Новый документ";
+            CurrentFileName = null;
+            CurrentDirectory = null;
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -408,13 +419,19 @@ namespace QuestionEditor
             }
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_18(object sender, RoutedEventArgs e)
         {
+            if (Questions.Items.Count == 0)
+            {
+                OkMessage yn = new OkMessage("Сохранение не удалось", "Тест не имеет ни одного вопроса. Такое сохранение не допустимо");
+                yn.ShowDialog();
+                return;
+            }
+            var test = new XElement("Test");
             var sd = new SaveFileDialog();
             sd.Filter = "XML documents | *.xml";
             sd.ShowDialog();
             if (string.IsNullOrEmpty(sd.FileName)) return;
-            var test = new XElement("Test");
             test.SetAttributeValue("TestName", sd.FileName);
 
             var preambula = new XElement("Preambula");
@@ -438,8 +455,54 @@ namespace QuestionEditor
             test.Add(question);
 
             test.Save(sd.FileName);
-
             WriteImages(sd.FileName);
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (Questions.Items.Count == 0)
+            {
+                OkMessage yn = new OkMessage("Сохранение не удалось", "Тест не имеет ни одного вопроса. Такое сохранение не допустимо");
+                yn.ShowDialog();
+                return;
+            }
+
+            var test = new XElement("Test");
+            string filename = CurrentDirectory;
+            if (string.IsNullOrEmpty(CurrentDirectory))
+            {
+                var sd = new SaveFileDialog();
+                sd.Filter = "XML documents | *.xml";
+                sd.ShowDialog();
+                if (string.IsNullOrEmpty(sd.FileName)) return;
+                test.SetAttributeValue("TestName", sd.FileName);
+                filename = sd.FileName;
+            }
+
+
+            var preambula = new XElement("Preambula");
+            foreach (var item in Preambula)
+            {
+                var temp = new XElement("PreambulaItem");
+                temp.SetAttributeValue("Name", item.Item1);
+                temp.SetAttributeValue("Value", item.Item2);
+                preambula.Add(temp);
+            }
+            test.Add(preambula);
+
+            var question = new XElement("Question");
+            int ind = 0;
+            foreach (Question item in Questions.Items)
+            {
+                question.Add(QuestionToElement(item, ind));
+                ind++;
+            }
+            test.SetAttributeValue("NumberOfQuestions", ind);
+            test.Add(question);
+
+            test.Save(CurrentFileName);
+
+            WriteImages(CurrentFileName);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -610,10 +673,7 @@ namespace QuestionEditor
             return ch + "</div>\n";
         }
 
-
-
         #endregion
-
 
         #region Redacting Stuff
 
@@ -781,7 +841,6 @@ namespace QuestionEditor
             UpdateRemarks();
         }
 
-
         #region OpenFile
 
         private void MenuItem_Click_17(object sender, RoutedEventArgs e)
@@ -794,7 +853,10 @@ namespace QuestionEditor
                 return;
             }
 
-            XElement root;
+            Preambula.Clear();
+            UpdateRemarks();
+            Questions.Items.Clear();
+            XElement root = null;
 
             try
             {
@@ -802,46 +864,117 @@ namespace QuestionEditor
             }
             catch (Exception ex)
             {
-                YesNo yn = new YesNo("Некорректный файл", "Файл, который вы пытаетесь загрузить, загружен некорректно, ошибка \"" + ex.Message + "\"");
+                OkMessage yn = new OkMessage("Некорректный файл", "Файл, который вы пытаетесь загрузить, загружен некорректно, ошибка \"" + ex.Message + "\"");
                 yn.ShowDialog();
+                return;
             }
 
+            CurrentFileName = od.FileName;
+            CurrentDirectory = od.FileName;
+            int ind = CurrentDirectory.Length - 1;
+            while (CurrentDirectory[ind] != '\\')
+            {
+                ind--;
+            }
+            CurrentDirectory = CurrentDirectory.Substring(0, ind + 1);
 
+            LoadQuestions(root);
+            LoadRemarks(root.Element("Preambula"));
 
-
+            if (Questions.Items.Count == 0)
+            {
+                MiddleEditor.IsEnabled = false;
+            }
+            FileTitle.Text = CurrentFileName;
         }
-
 
         private void LoadQuestions(XElement root)
         {
+            NumberOfQuestions = 0;
             var questions = root.Descendants("Question").Skip(1).ToArray();
-
             foreach (var q in questions)
             {
                 NumberOfQuestions++;
-                var question = new Question();
-                question.Title = "Новый вопрос";
-                question.Content = NumberOfQuestions + ". " + question.Title;
-                question.Selected += Question_Selected;
-                question.Number = NumberOfQuestions;
-                question.Text = "[Difficulty = \"1\"]\nТекст вопроса";
-
+                var question = XmlToQuestion(q, NumberOfQuestions);
                 Questions.Items.Add(question);
                 Questions.SelectedItem = question;
-
-                MiddleEditor.IsEnabled = true;
             }
+
+            MiddleEditor.IsEnabled = true;
         }
 
-        private Question XmlToQuestion(XElement q)
+        private Question XmlToQuestion(XElement q, int id)
         {
             var question = new Question();
             question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value;
             question.Difficulty = Convert.ToInt32(q.Attribute("Difficulty").Value);
+            question.Content = NumberOfQuestions + ". " + question.Title;
+            question.Selected += Question_Selected;
+            var text = "[Difficulty = \"" + question.Difficulty + "\"]\n";
 
-            throw new NotImplementedException();
+
+            //Adding toq
+            var toq = q.Element("TextOfQuestion").Elements().Skip(1).ToArray();
+            foreach (var item in toq)
+            {
+                text += ToqToText(item);
+            }
+
+            // Adding choice
+            text += ChoiseToText(q.Element("Choice"));
+
+            question.Text = text;
+            return question;
         }
 
+        private string ToqToText(XElement toq)
+        {
+            // if toq is text
+            if (!string.IsNullOrEmpty(toq.Attribute("SymplyText").Value))
+            {
+                return "\n" + toq.Attribute("SymplyText").Value + "\n";
+            }
+
+            // of toq is image
+            if (!string.IsNullOrEmpty(toq.Attribute("Image").Value))
+            {
+                Images.Add(CurrentDirectory + toq.Attribute("Image").Value);
+                return "\n[Image src=\"" + CurrentDirectory + toq.Attribute("Image").Value + "\"]\n";
+            }
+
+            // of toq is input
+            if (!string.IsNullOrEmpty(toq.Attribute("Input").Value))
+            {
+                return "\n[Input Text=\"" + toq.Attribute("Input").Value + "\"]\n";
+            }
+            throw new Exception("Unknown element");
+        }
+
+        private string ChoiseToText(XElement choice)
+        {
+            if (!choice.HasElements)
+            {
+                return "";
+            }
+            string text = "[Choice\n";
+
+            text += "[IsRandom = \"" + choice.Element("ChoiseUnit").Attribute("IsRandom").Value + "\"]\n";
+
+            foreach (var item in choice.Element("ChoiseUnit").Elements())
+            {
+                text += "[Text = \"" + item.Attribute("Text").Value + "\" Value = \"" + item.Attribute("Value").ToString() + "]\n";
+            }
+            return text + "]\n";
+        }
+
+        private void LoadRemarks(XElement preambula)
+        {
+            foreach (var item in preambula.Elements())
+            {
+                Preambula.Add(new Tuple<string, string>(item.Attribute("Name").Value, item.Attribute("Value").Value));
+                UpdateRemarks();
+            }
+        }
 
         #endregion
     }
