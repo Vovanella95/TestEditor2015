@@ -60,6 +60,7 @@
     <Compile Include="Authors.xaml.cs">
       <DependentUpon>Authors.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter.cs" />
     <Compile Include="FontSelector.xaml.cs">
       <DependentUpon>FontSelector.xaml</DependentUpon>
     </Compile>

@@ -24,14 +24,14 @@ namespace QuestionEditor
             InitializeComponent();
         }
 
-        public int FontSize = 16;
+        public int FS = 16;
         public bool Success;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                FontSize = Convert.ToInt32(fontsize.Text);
+                FS = Convert.ToInt32(fontsize.Text);
                 Success = true;
             }catch(Exception ex)
             {

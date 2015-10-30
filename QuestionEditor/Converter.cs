@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 using System.IO;
 
-namespace ConsoleApplication2
+namespace QuestionEditor
 {
-    class Program
+    public class Converter
     {
         /// <summary>
         /// Spliting string by inputed sepatator (Do not rusifyed me!)
@@ -17,7 +16,7 @@ namespace ConsoleApplication2
         /// <param name="str">source string</param>
         /// <param name="separator">separator</param>
         /// <returns>returns collection of strings</returns>
-        static IEnumerable<string> Split(string str, string separator)
+        IEnumerable<string> Split(string str, string separator)
         {
             int pos = 0;
             int ind = str.IndexOf(separator);
@@ -47,7 +46,7 @@ namespace ConsoleApplication2
         /// </summary>
         /// <param name="str">source string</param>
         /// <returns>formated string</returns>
-        static string RemoveTags(string str)
+        string RemoveTags(string str)
         {
             if (str == " .</")
             {
@@ -74,13 +73,12 @@ namespace ConsoleApplication2
                     .Replace("\r", "");
         }
 
-
         /// <summary>
         /// Transform string to XElement
         /// </summary> (There's no cow level)
         /// <param name="str">source string</param>
         /// <returns>XElement representation of string</returns>
-        static XElement ParseString(string str)
+        XElement ParseString(string str)
         {
             var ques = new XElement("Question");
             ques.SetAttributeValue("Difficulity", "1");
@@ -205,13 +203,12 @@ namespace ConsoleApplication2
             return ques;
         }
 
-
         /// <summary>
         /// Reading file and converting this to XML format
         /// </summary>
         /// <param name="inputFile">input file path</param>
         /// <param name="outputFile">output file path</param>
-        static void Dowork(string inputFile, string outputFile)
+        public void Dowork(string inputFile, string outputFile)
         {
             var demo = new StreamReader(inputFile).ReadToEnd();
             var d = demo[0];
@@ -236,11 +233,6 @@ namespace ConsoleApplication2
                 root.Add(ParseString(item));
             }
             root.Save(outputFile);
-        }
-
-        static void Main(string[] args)
-        {
-            Dowork("E:\\BinaryTree.txt", "E:\\output.xml");
         }
     }
 }

@@ -117,6 +117,30 @@ namespace QuestionEditor
 
         #region Events
 
+        private void MenuItem_Click_19(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.ShowDialog();
+
+            if (string.IsNullOrEmpty(of.FileName))
+            {
+                return;
+            }
+            var converter = new Converter();
+            try
+            {
+                converter.Dowork(of.FileName, of.FileName + ".xml");
+                OkMessage yn = new OkMessage("Преобразовано успешно", "Файл сохранен как " + of.FileName + ".xml");
+                yn.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                OkMessage yn = new OkMessage("Преобразование не удалось", "Ошибка анализа файла. Преобразование провалено, ошибка " + ex.Message);
+                yn.ShowDialog();
+            }
+
+        }
+
         bool hidden = false;
         private void button3_Click(object sender, RoutedEventArgs e)
         {
@@ -743,7 +767,7 @@ namespace QuestionEditor
 
             if (fs.Success)
             {
-                AddTag("<label style=\"font-size:" + fs.FontSize + "px\">", "</label>");
+                AddTag("<label style=\"font-size:" + fs.FS + "px\">", "</label>");
             }
         }
 

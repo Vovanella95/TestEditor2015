@@ -26,6 +26,7 @@
                 <MenuItem Header="Просмотр" Foreground="#FFE2E2E2">
                     <MenuItem Header="Препросмотр" Foreground="#FF212121" Click="MenuItem_Click_4"/>
                 </MenuItem>
+                <MenuItem Header="Конвертация" Foreground="#FFE2E2E2" Background="#FF3A3A3A" Click="MenuItem_Click_19"/>
                 <MenuItem Header="Справка" Foreground="#FFE2E2E2">
                     <MenuItem Header="Помощь" Foreground="#FF212121"/>
                     <MenuItem Header="Авторы" Foreground="#FF212121" Click="MenuItem_Click_3"/>
