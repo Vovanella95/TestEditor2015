@@ -1,58 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="6">
+<Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="7">
   <Question>
-    <Question Code="0" Difficulty="1" NumberOfTexts="5">
-      <TextOfQuestion>
-        <TextOfQuestion SymplyText="Мегавопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="           Текст вопроса            " Image="" Input="" Code="1" />
-        <TextOfQuestion SymplyText="" Image="OEWVA56IWFM.jpg" Input="" Code="2" />
-        <TextOfQuestion SymplyText="          Кто это такой?                    " Image="" Input="" Code="3" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="4" />
-      </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True">
-          <ChoiceUnit Text="Новый элемент" Value="Value=" />
-          <ChoiceUnit Text="Новый элемент" Value="Value=" />
-          <ChoiceUnit Text="Новый элемент" Value="Value=" />
-        </ChoiseUnit>
-      </Choice>
-    </Question>
-    <Question Code="1" Difficulty="1" NumberOfTexts="4">
+    <Question Code="0" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="           Текст вопроса   А это кто?          " Image="" Input="" Code="1" />
-        <TextOfQuestion SymplyText="" Image="om6UaO25Sik.jpg" Input="" Code="2" />
-        <TextOfQuestion SymplyText="          " Image="" Input="" Code="3" />
+        <TextOfQuestion SymplyText=" &lt;label style=&quot;color: #D2691E&quot;&gt;Текст вопроса&lt;/label&gt;" Image="" Input="" Code="1" />
+      </TextOfQuestion>
+      <Choice />
+    </Question>
+    <Question Code="1" Difficulty="1" NumberOfTexts="2">
+      <TextOfQuestion>
+        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>
     <Question Code="2" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="           Текст вопроса   Третий вопрос  Лалалала  " Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>
     <Question Code="3" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="   Текст вопроса " Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>
     <Question Code="4" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="вапвапвап" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="   Текст вопроса " Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>
-    <Question Code="5" Difficulty="1" NumberOfTexts="4">
+    <Question Code="5" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="вапвапавп" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText="  &lt;b&gt; Текст вопроса&lt;/b&gt;  Введите слово " Image="" Input="" Code="1" />
-        <TextOfQuestion SymplyText="" Image="" Code="2" Input="нужное слово" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="3" />
+        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
+      </TextOfQuestion>
+      <Choice />
+    </Question>
+    <Question Code="6" Difficulty="1" NumberOfTexts="2">
+      <TextOfQuestion>
+        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>

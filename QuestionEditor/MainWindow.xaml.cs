@@ -34,6 +34,8 @@ namespace QuestionEditor
         private string CurrentDirectory = null;
         private string CurrentFileName = null;
 
+        #region Helpers
+
         public MainWindow()
         {
             InitializeComponent();
@@ -111,7 +113,52 @@ namespace QuestionEditor
             }
         }
 
+        #endregion
+
         #region Events
+
+        bool hidden = false;
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            if (!hidden)
+            {
+                QuestionsGrid.Margin = new Thickness(-250, 0, 0, 0);
+                button3.Content = ">";
+                MiddleEditor.Width += 260;
+            }
+            else
+            {
+                QuestionsGrid.Margin = new Thickness(10, 0, 0, 0);
+                button3.Content = "<";
+                MiddleEditor.Width -= 260;
+            }
+            hidden = !hidden;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            YesNo yn = new YesNo("Выход из приложения", "Вы действительно хотите выйти? Результат может быть утерян");
+            yn.ShowDialog();
+            if (!yn.result)
+            {
+                return;
+            }
+            this.Close();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            Authors a = new Authors();
+            a.ShowDialog();
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            var m = new Mark("название", "значение");
+            m.ShowDialog();
+            Preambula.Add(new Tuple<string, string>(m.name, m.value));
+            UpdateRemarks();
+        }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -530,41 +577,6 @@ namespace QuestionEditor
 
         #endregion
 
-        bool hidden = false;
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-            if (!hidden)
-            {
-                QuestionsGrid.Margin = new Thickness(-250, 0, 0, 0);
-                button3.Content = ">";
-                MiddleEditor.Width += 260;
-            }
-            else
-            {
-                QuestionsGrid.Margin = new Thickness(10, 0, 0, 0);
-                button3.Content = "<";
-                MiddleEditor.Width -= 260;
-            }
-            hidden = !hidden;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            YesNo yn = new YesNo("Выход из приложения", "Вы действительно хотите выйти? Результат может быть утерян");
-            yn.ShowDialog();
-            if (!yn.result)
-            {
-                return;
-            }
-            this.Close();
-        }
-
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
-        {
-            Authors a = new Authors();
-            a.ShowDialog();
-        }
-
         #region Preview
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
@@ -832,14 +844,6 @@ namespace QuestionEditor
         }
 
         #endregion
-
-        private void Button_Click_9(object sender, RoutedEventArgs e)
-        {
-            var m = new Mark("название", "значение");
-            m.ShowDialog();
-            Preambula.Add(new Tuple<string, string>(m.name, m.value));
-            UpdateRemarks();
-        }
 
         #region OpenFile
 
