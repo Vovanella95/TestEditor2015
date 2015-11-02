@@ -77,9 +77,11 @@ namespace QuestionEditor
             var el = Preambula.First(w => w.Item1 == SplitProperties(send.Text).Item1);
 
             var temp = SplitProperties(send.Text);
+            Hider.Visibility = Visibility.Visible;
             var m = new Mark(temp.Item1, temp.Item2);
             m.ShowDialog();
 
+            Hider.Visibility = Visibility.Hidden;
             Preambula = Preambula.Where(w => w.Item1 != el.Item1).ToList();
             Preambula.Add(new Tuple<string, string>(m.name, m.value));
             UpdateRemarks();
@@ -117,6 +119,14 @@ namespace QuestionEditor
 
         #region Events
 
+        private void MenuItem_Click_20(object sender, RoutedEventArgs e)
+        {
+            Hider.Visibility = Visibility.Visible;
+            HowToUseIt a = new HowToUseIt();
+            a.ShowDialog();
+            Hider.Visibility = Visibility.Hidden;
+        }
+
         private void MenuItem_Click_19(object sender, RoutedEventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog();
@@ -130,13 +140,17 @@ namespace QuestionEditor
             try
             {
                 converter.Dowork(of.FileName, of.FileName + ".xml");
+                Hider.Visibility = Visibility.Visible;
                 OkMessage yn = new OkMessage("Преобразовано успешно", "Файл сохранен как " + of.FileName + ".xml");
                 yn.ShowDialog();
+                Hider.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {
+                Hider.Visibility = Visibility.Visible;
                 OkMessage yn = new OkMessage("Преобразование не удалось", "Ошибка анализа файла. Преобразование провалено, ошибка " + ex.Message);
                 yn.ShowDialog();
+                Hider.Visibility = Visibility.Hidden;
             }
 
         }
@@ -161,8 +175,10 @@ namespace QuestionEditor
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            Hider.Visibility = Visibility.Visible;
             YesNo yn = new YesNo("Выход из приложения", "Вы действительно хотите выйти? Результат может быть утерян");
             yn.ShowDialog();
+            Hider.Visibility = Visibility.Hidden;
             if (!yn.result)
             {
                 return;
@@ -172,8 +188,10 @@ namespace QuestionEditor
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
+            Hider.Visibility = Visibility.Visible;
             Authors a = new Authors();
             a.ShowDialog();
+            Hider.Visibility = Visibility.Hidden;
         }
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
@@ -241,8 +259,10 @@ namespace QuestionEditor
 
         private void choise_Click(object sender, RoutedEventArgs e)
         {
+            Hider.Visibility = Visibility.Visible;
             Choise choise = new Choise();
             choise.ShowDialog();
+            Hider.Visibility = Visibility.Hidden;
             QuestionText.Text = QuestionText.Text.Insert(QuestionText.CaretIndex, choise.result);
         }
 
@@ -494,8 +514,10 @@ namespace QuestionEditor
         {
             if (Questions.Items.Count == 0)
             {
+                Hider.Visibility = Visibility.Visible;
                 OkMessage yn = new OkMessage("Сохранение не удалось", "Тест не имеет ни одного вопроса. Такое сохранение не допустимо");
                 yn.ShowDialog();
+                Hider.Visibility = Visibility.Hidden;
                 return;
             }
             var test = new XElement("Test");
@@ -533,8 +555,10 @@ namespace QuestionEditor
         {
             if (Questions.Items.Count == 0)
             {
+                Hider.Visibility = Visibility.Visible;
                 OkMessage yn = new OkMessage("Сохранение не удалось", "Тест не имеет ни одного вопроса. Такое сохранение не допустимо");
                 yn.ShowDialog();
+                Hider.Visibility = Visibility.Hidden;
                 return;
             }
 
@@ -578,8 +602,10 @@ namespace QuestionEditor
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            Hider.Visibility = Visibility.Visible;
             YesNo yn = new YesNo("Удалить вопрос?", "Вы уверены в том, что хотите удалить этот вопрос? Отменить это будет невозможно");
             yn.ShowDialog();
+            Hider.Visibility = Visibility.Hidden;
             if (!yn.result)
             {
                 return;
@@ -762,8 +788,10 @@ namespace QuestionEditor
 
         private void MenuItem_Click_9(object sender, RoutedEventArgs e)
         {
+            Hider.Visibility = Visibility.Visible;
             var fs = new FontSelector();
             fs.ShowDialog();
+            Hider.Visibility = Visibility.Hidden;
 
             if (fs.Success)
             {
@@ -892,8 +920,10 @@ namespace QuestionEditor
             }
             catch (Exception ex)
             {
+                Hider.Visibility = Visibility.Visible;
                 OkMessage yn = new OkMessage("Некорректный файл", "Файл, который вы пытаетесь загрузить, загружен некорректно, ошибка \"" + ex.Message + "\"");
                 yn.ShowDialog();
+                Hider.Visibility = Visibility.Hidden;
                 return;
             }
 
@@ -1005,6 +1035,7 @@ namespace QuestionEditor
         }
 
         #endregion
+
     }
 
 

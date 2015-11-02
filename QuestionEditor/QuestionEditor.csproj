@@ -57,43 +57,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Authors.xaml.cs">
+    <Compile Include="Views\Authors.xaml.cs">
       <DependentUpon>Authors.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter.cs" />
-    <Compile Include="FontSelector.xaml.cs">
+    <Compile Include="Views\FontSelector.xaml.cs">
       <DependentUpon>FontSelector.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HowToUseIt.xaml.cs">
+    <Compile Include="Views\HowToUseIt.xaml.cs">
       <DependentUpon>HowToUseIt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Mark.xaml.cs">
+    <Compile Include="Views\Mark.xaml.cs">
       <DependentUpon>Mark.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OkMessage.xaml.cs">
+    <Compile Include="Views\OkMessage.xaml.cs">
       <DependentUpon>OkMessage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TextParser.cs" />
-    <Compile Include="YesNo.xaml.cs">
+    <Compile Include="Views\YesNo.xaml.cs">
       <DependentUpon>YesNo.xaml</DependentUpon>
     </Compile>
-    <Page Include="Authors.xaml">
+    <Page Include="Views\Authors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Choise.xaml">
+    <Page Include="Views\Choise.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FontSelector.xaml">
+    <Page Include="Views\FontSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HowToUseIt.xaml">
+    <Page Include="Views\HowToUseIt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -101,22 +100,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Choise.xaml.cs">
+    <Compile Include="Views\Choise.xaml.cs">
       <DependentUpon>Choise.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Mark.xaml">
+    <Page Include="Views\Mark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OkMessage.xaml">
+    <Page Include="Views\OkMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="YesNo.xaml">
+    <Page Include="Views\YesNo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +170,7 @@
   <ItemGroup>
     <Resource Include="Images\info_1.PNG" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

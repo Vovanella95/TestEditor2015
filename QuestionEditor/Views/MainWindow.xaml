@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuestionEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="738.89" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Icon="Images/logo.PNG" MouseDown="window_MouseDown" WindowStyle="None">
+        Title="MainWindow" Height="738.89" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Icon="/QuestionEditor;component/Images/logo.PNG" MouseDown="window_MouseDown" WindowStyle="None">
     <Grid Name="MainGrid">
+        <Grid Background="Black" Panel.ZIndex="1" Opacity="0.7" Visibility="Hidden" Name="Hider"/>
         <StackPanel>
             <Grid Height="40" Background="#FF3A3A3A">
-                <Image Source="Images/logo.png" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                <Image Source="/QuestionEditor;component/Images/logo.PNG" HorizontalAlignment="Left" Margin="5,0,0,0"/>
                 <TextBlock Name="FileTitle" HorizontalAlignment="Center"  Foreground="White" Text="Новый документ" VerticalAlignment="Center" FontSize="18"/>
                 <Button Content="x" Width="30" Height="30" Margin="0,5,5,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FFE85151" Foreground="White" FontSize="16" Click="Button_Click_1" VerticalAlignment="Top"/>
                 <Button Content="◻" Width="30" Height="30" Margin="0,5,35,0" HorizontalAlignment="Right" BorderBrush="{x:Null}" Background="#FF5B5B5B" Foreground="White" FontSize="16" Click="Button_Click_2" VerticalAlignment="Top"/>
@@ -28,7 +29,7 @@
                 </MenuItem>
                 <MenuItem Header="Конвертация" Foreground="#FFE2E2E2" Background="#FF3A3A3A" Click="MenuItem_Click_19"/>
                 <MenuItem Header="Справка" Foreground="#FFE2E2E2">
-                    <MenuItem Header="Помощь" Foreground="#FF212121"/>
+                    <MenuItem Header="Помощь" Foreground="#FF212121" Click="MenuItem_Click_20"/>
                     <MenuItem Header="Авторы" Foreground="#FF212121" Click="MenuItem_Click_3"/>
                 </MenuItem>
             </Menu>
@@ -51,19 +52,19 @@
                         <TextBox x:Name="questionTitle" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,5,0,0">
                             <Button Width="30" Height="30" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_4" >
-                                <Image Source="Images/glyphicons-103-bold.png" Width="15" Height="15"/>
+                                <Image  Width="15" Height="15" Source="/QuestionEditor;component/Images/glyphicons-103-bold.png"/>
                             </Button>
                             <Button Width="30" Height="30" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_6" >
-                                <Image Source="Images/glyphicons-102-italic.png" Width="15" Height="15"/>
+                                <Image  Width="15" Height="15" Source="/QuestionEditor;component/Images/glyphicons-102-italic.png"/>
                             </Button>
                             <Button Width="30" Height="30" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_5" >
-                                <Image Source="Images/glyphicons-104-text-underline.png" Width="15" Height="15"/>
+                                <Image  Width="15" Height="15" Source="/QuestionEditor;component/Images/glyphicons-104-text-underline.png"/>
                             </Button>
 
                             <Menu Margin="30,0,0,0" Background="WhiteSmoke">
                                 <MenuItem Height="30">
                                     <MenuItem.Header>
-                                        <Image Source="Images/glyphicons-101-font.png" Width="15" Height="15"/>
+                                        <Image Source="/QuestionEditor;component/Images/glyphicons-101-font.png" Width="15" Height="15"/>
                                     </MenuItem.Header>
                                     <MenuItem Header="12px" Click="MenuItem_Click_5"/>
                                     <MenuItem Header="14px" Click="MenuItem_Click_6"/>
@@ -73,7 +74,7 @@
                                 </MenuItem>
                                 <MenuItem Height="30">
                                     <MenuItem.Header>
-                                        <Image  Width="15" Height="15" Source="Images/glyphicons-93-tint.png"/>
+                                        <Image  Width="15" Height="15" Source="/QuestionEditor;component/Images/glyphicons-93-tint.png"/>
                                     </MenuItem.Header>
                                     <MenuItem Header="Черный" Click="MenuItem_Click_11">
                                         <MenuItem.Icon>
@@ -110,10 +111,10 @@
                             </Menu>
 
                             <Button Width="30" Height="30" Margin="30,0,0,0" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_7">
-                                <Image  Width="15" Height="15" Source="Images/glyphicons-211-left-arrow.png"/>
+                                <Image  Width="15" Height="15" Source="/QuestionEditor;component/Images/glyphicons-211-left-arrow.png"/>
                             </Button>
                             <Button Width="30" Height="30" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_8">
-                                <Image Source="Images/glyphicons-212-right-arrow.png" Width="15" Height="15"/>
+                                <Image Source="/QuestionEditor;component/Images/glyphicons-212-right-arrow.png" Width="15" Height="15"/>
                             </Button>
                         </StackPanel>
                         <TextBox x:Name="QuestionText" TextChanged="QuestionText_TextChanged" Margin="0,-1,0,0" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="532" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="#FF9C9C9C"/>
