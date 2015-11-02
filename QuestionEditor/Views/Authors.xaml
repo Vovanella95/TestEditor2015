@@ -16,7 +16,7 @@
                 <StackPanel Orientation="Horizontal" Height="300" HorizontalAlignment="Center">
                     <StackPanel Width="200" Background="White">
                         <TextBlock Text="Владимир Полюхович" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                        <Image Source="Images/aut1.png" Width="150" Height="150" Margin="0,10,0,0" />
+                        <Image  Width="150" Height="150" Margin="0,10,0,0" Source="/QuestionEditor;component/Images/aut1.PNG" />
                         <TextBlock Text="http://vk.com/vovanella95" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="#FF5C8EF9"/>
                         <TextBlock Text=" - БрГУ имени А. С. Пушкина" Margin="5,10,0,0"/>
                         <TextBlock Text=" - Прикладная математика" Margin="5,0,0,0"/>
@@ -25,7 +25,7 @@
                     </StackPanel>
                     <StackPanel Width="200" Background="White" Margin="10,0,0,0">
                         <TextBlock Text="Владимир Попека" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                        <Image Source="Images/aut2.png" Width="150" Height="150" Margin="0,10,0,0" />
+                        <Image  Width="150" Height="150" Margin="0,10,0,0" Source="/QuestionEditor;component/Images/aut2.PNG" />
                         <TextBlock Text="http://vk.com/wowawow" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="#FF5C8EF9"/>
                         <TextBlock Text=" - БрГУ имени А. С. Пушкина" Margin="5,10,0,0"/>
                         <TextBlock Text=" - Прикладная математика" Margin="5,0,0,0"/>

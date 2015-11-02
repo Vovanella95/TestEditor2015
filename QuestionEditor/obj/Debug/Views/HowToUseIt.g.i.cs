@@ -41,7 +41,7 @@ namespace QuestionEditor {
     public partial class HowToUseIt : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 15 "..\..\..\Views\HowToUseIt.xaml"
+        #line 11 "..\..\..\Views\HowToUseIt.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock FileTitle;
         
@@ -49,7 +49,7 @@ namespace QuestionEditor {
         #line hidden
         
         
-        #line 20 "..\..\..\Views\HowToUseIt.xaml"
+        #line 16 "..\..\..\Views\HowToUseIt.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.WebBrowser Browser;
         
@@ -99,7 +99,7 @@ namespace QuestionEditor {
             return;
             case 3:
             
-            #line 16 "..\..\..\Views\HowToUseIt.xaml"
+            #line 12 "..\..\..\Views\HowToUseIt.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
             
             #line default
@@ -107,7 +107,7 @@ namespace QuestionEditor {
             return;
             case 4:
             
-            #line 17 "..\..\..\Views\HowToUseIt.xaml"
+            #line 13 "..\..\..\Views\HowToUseIt.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click_1);
             
             #line default
@@ -115,7 +115,7 @@ namespace QuestionEditor {
             return;
             case 5:
             
-            #line 18 "..\..\..\Views\HowToUseIt.xaml"
+            #line 14 "..\..\..\Views\HowToUseIt.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click_2);
             
             #line default
