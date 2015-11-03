@@ -612,17 +612,24 @@ namespace QuestionEditor
             }
 
             Questions.Items.Remove(Questions.SelectedItem);
-            Questions.SelectedItem = Questions.Items[0];
-
-            int ind = 1;
-            foreach (Question item in Questions.Items)
+            if (Questions.Items.Count != 0)
             {
-                string old = (string)item.Content;
-                item.Number = ind;
-                item.Content = ind + ". " + old.Substring(old.IndexOf(' ') + 1);
-                ind++;
+                Questions.SelectedItem = Questions.Items[0];
+                int ind = 1;
+                foreach (Question item in Questions.Items)
+                {
+                    string old = (string)item.Content;
+                    item.Number = ind;
+                    item.Content = ind + ". " + old.Substring(old.IndexOf(' ') + 1);
+                    ind++;
+                }
+                NumberOfQuestions = ind - 1;
             }
-            NumberOfQuestions = ind - 1;
+            else
+            {
+                MiddleEditor.IsEnabled = false;
+                NumberOfQuestions = 0;
+            }
         }
 
         #endregion

@@ -126,7 +126,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <Button x:Name="button2" Content="Сохранить" Width="94" Click="button2_Click" Background="#FF6BBF6B" Foreground="White" Height="40" VerticalAlignment="Top"/>
-                                <Button x:Name="button1" Content="x" VerticalAlignment="Top" Width="43" Height="40" FontSize="24" Foreground="White" Background="#FFF06D6D" Click="button1_Click"/>
+                                <Button x:Name="button1" Content="x" Width="43" FontSize="24" Foreground="White" Background="#FFF06D6D" Click="button1_Click"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>

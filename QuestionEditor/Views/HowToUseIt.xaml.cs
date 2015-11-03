@@ -46,5 +46,25 @@ namespace QuestionEditor
         {
             DragMove();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Browser.Navigate(Directory.GetCurrentDirectory() + "\\Data\\ForUsers.html");
+            ForDeveloper.Foreground = Brushes.White;
+            ForDeveloper.Background = Brushes.Green;
+
+            ForUser.Foreground = Brushes.Gray;
+            ForUser.Background = Brushes.White;
+        }
+
+        private void ForDeveloper_Click(object sender, RoutedEventArgs e)
+        {
+            Browser.Navigate(Directory.GetCurrentDirectory() + "\\Data\\ForDevelopers.html");
+            ForUser.Foreground = Brushes.White;
+            ForUser.Background = Brushes.Green;
+
+            ForDeveloper.Foreground = Brushes.Gray;
+            ForDeveloper.Background = Brushes.White;
+        }
     }
 }
