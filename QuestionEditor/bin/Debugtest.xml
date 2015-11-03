@@ -1,24 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="3">
+<Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="1">
   <Question>
     <Question Code="0" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText=" &lt;label style=&quot;color: #2E8B57&quot;&gt;Текст вопроса&lt;/label&gt;" Image="" Input="" Code="1" />
-      </TextOfQuestion>
-      <Choice />
-    </Question>
-    <Question Code="1" Difficulty="1" NumberOfTexts="2">
-      <TextOfQuestion>
-        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
-      </TextOfQuestion>
-      <Choice />
-    </Question>
-    <Question Code="2" Difficulty="1" NumberOfTexts="2">
-      <TextOfQuestion>
-        <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText=" Текст вопроса" Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText=" &lt;label style='font-size:76px'&gt;Текст вопроса&lt;/label&gt;" Image="" Input="" Code="1" />
       </TextOfQuestion>
       <Choice />
     </Question>

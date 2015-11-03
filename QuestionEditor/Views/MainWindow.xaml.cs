@@ -572,8 +572,8 @@ namespace QuestionEditor
                 if (string.IsNullOrEmpty(sd.FileName)) return;
                 test.SetAttributeValue("TestName", sd.FileName);
                 filename = sd.FileName;
+                CurrentFileName = filename;
             }
-
 
             var preambula = new XElement("Preambula");
             foreach (var item in Preambula)
@@ -766,7 +766,7 @@ namespace QuestionEditor
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"text-decoration: underline\">", "</label>");
+            AddTag("<label style='text-decoration: underline'>", "</label>");
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
@@ -776,22 +776,22 @@ namespace QuestionEditor
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"font-size:12px\">", "</label>");
+            AddTag("<label style='font-size:12px'>", "</label>");
         }
 
         private void MenuItem_Click_6(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"font-size:14px\">", "</label>");
+            AddTag("<label style='font-size:14px'>", "</label>");
         }
 
         private void MenuItem_Click_7(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"font-size:16px\">", "</label>");
+            AddTag("<label style='font-size:16px'>", "</label>");
         }
 
         private void MenuItem_Click_8(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"font-size:16px\">", "</label>");
+            AddTag("<label style='font-size:16px'>", "</label>");
         }
 
         private void MenuItem_Click_9(object sender, RoutedEventArgs e)
@@ -803,7 +803,7 @@ namespace QuestionEditor
 
             if (fs.Success)
             {
-                AddTag("<label style=\"font-size:" + fs.FS + "px\">", "</label>");
+                AddTag("<label style='font-size:" + fs.FS + "px'>", "</label>");
             }
         }
 
@@ -812,37 +812,37 @@ namespace QuestionEditor
             var cd = new ColorDialog();
             cd.ShowDialog();
 
-            AddTag("<label style=\"color: rgb(" + cd.Color.R + "," + cd.Color.G + "," + cd.Color.B + ")\">", "</label>");
+            AddTag("<label style='color: rgb(" + cd.Color.R + "," + cd.Color.G + "," + cd.Color.B + ")'>", "</label>");
         }
 
         private void MenuItem_Click_11(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"color: black\">", "</label>");
+            AddTag("<label style='color: black'>", "</label>");
         }
 
         private void MenuItem_Click_12(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"color: #B22222\">", "</label>");
+            AddTag("<label style='color: #B22222'>", "</label>");
         }
 
         private void MenuItem_Click_13(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"color: #1E90FF\">", "</label>");
+            AddTag("<label style='color: #1E90FF'>", "</label>");
         }
 
         private void MenuItem_Click_14(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"color: #2E8B57\">", "</label>");
+            AddTag("<label style='color: #2E8B57'>", "</label>");
         }
 
         private void MenuItem_Click_15(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"color: #8A2BE2\">", "</label>");
+            AddTag("<label style='color: #8A2BE2'>", "</label>");
         }
 
         private void MenuItem_Click_16(object sender, RoutedEventArgs e)
         {
-            AddTag("<label style=\"color: #D2691E\">", "</label>");
+            AddTag("<label style='color: #D2691E'>", "</label>");
         }
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
@@ -1004,8 +1004,17 @@ namespace QuestionEditor
             // of toq is image
             if (!string.IsNullOrEmpty(toq.Attribute("Image").Value))
             {
+                var dirName = CurrentFileName;
+                int i = dirName.Length - 1;
+                while(dirName[i]!='\\')
+                {
+                    i--;
+                }
+                dirName = dirName.Substring(i);
+                dirName = dirName.Substring(0, dirName.IndexOf('.'));
+
                 Images.Add(CurrentDirectory + toq.Attribute("Image").Value);
-                return "\n[Image src=\"" + CurrentDirectory + toq.Attribute("Image").Value + "\"]\n";
+                return "\n[Image src=\"" + CurrentDirectory + dirName.Replace("\\","") + "\\" + toq.Attribute("Image").Value + "\"]\n";
             }
 
             // of toq is input
