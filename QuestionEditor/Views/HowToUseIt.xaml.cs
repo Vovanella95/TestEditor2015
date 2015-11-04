@@ -34,7 +34,7 @@ namespace QuestionEditor
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

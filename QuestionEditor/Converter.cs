@@ -48,7 +48,7 @@ namespace QuestionEditor
         /// <returns>formated string</returns>
         string RemoveTags(string str)
         {
-            if (str == " .</")
+            if (str == " .</" || str == " </P")
             {
                 return "";
             }
@@ -90,7 +90,7 @@ namespace QuestionEditor
             ques.Add(toq);
             ques.Add(choice);
 
-            var inputWords = str.Split('\n').Where(w => !string.IsNullOrEmpty(w) && w[0] == 1).Select(w => new { Answer = (char)w[1], Text = w.Substring(3).Trim('\r') });
+            var inputWords = str.Split('\n').Where(w => !string.IsNullOrEmpty(w) && w[0] == 1).Select(w => new { Answer = w[1], Text = w.Substring(3).Trim('\r') });
             XElement chun = new XElement("ChoiseUnit");
             choice.Add(chun);
 
@@ -102,8 +102,28 @@ namespace QuestionEditor
                 foreach (var item in inputWords)
                 {
                     var chun1 = new XElement("ChoiseUnit");
-                    chun1.SetAttributeValue("Right", item.Answer == '0' ? "false" : "true");
+                    chun1.SetAttributeValue("Value", item.Answer == '0' ? "false" : "true");
                     chun1.SetAttributeValue("Text", RemoveTags(item.Text.Trim(((char)0x01))));
+
+
+                    var t = RemoveTags(item.Text.Trim(((char)0x01)));
+                    var text = item.Text;
+                    if(text.Contains("<IMG"))
+                    {
+                        int ind = text.IndexOf("src=");
+                        while (text[ind] != '\"') ind++;
+                        ind++;
+
+                        int ind2 = ind + 1;
+                        while (text[ind2] != '\"') ind2++;
+
+                        var img = text.Substring(ind, ind2 - ind);
+                        chun1.SetAttributeValue("Image", img);
+
+                        var txt = RemoveTags(item.Text.Trim(((char)0x01)));
+                        txt = txt.Replace(txt.Substring(txt.IndexOf('<'), txt.IndexOf('>') - txt.IndexOf('<') + 1), "");
+                        chun1.SetAttributeValue("Text", txt);
+                    }
                     chun.Add(chun1);
                 }
                 var textOfQuestion = str.Split('\n')[4];
@@ -114,7 +134,7 @@ namespace QuestionEditor
                     int index = textOfQuestion.IndexOf("src=\"") + 5;
                     string image = textOfQuestion.Substring(index, textOfQuestion.IndexOf('\"', index) - index);
                     index = textOfQuestion.IndexOf("<IMG");
-                    toq1.SetAttributeValue("Text", RemoveTags(textOfQuestion.Remove(index, textOfQuestion.IndexOf(">", index) - index + 1)));
+                    toq1.SetAttributeValue("SymplyText", RemoveTags(textOfQuestion.Remove(index, textOfQuestion.IndexOf(">", index) - index + 1)));
 
                     var toqimg = new XElement("TextOfQuestion");
                     toqimg.SetAttributeValue("SymplyText", "");
@@ -126,7 +146,7 @@ namespace QuestionEditor
                 }
                 else
                 {
-                    toq1.SetAttributeValue("Text", RemoveTags(textOfQuestion));
+                    toq1.SetAttributeValue("SymplyText", RemoveTags(textOfQuestion));
                     toq1.SetAttributeValue("Image", "");
                     toq.Add(toq1);
                 }
@@ -143,7 +163,7 @@ namespace QuestionEditor
                     int index = textOfQuestion.IndexOf("src=\"") + 5;
                     string image = textOfQuestion.Substring(index, textOfQuestion.IndexOf('\"', index) - index);
                     index = textOfQuestion.IndexOf("<IMG");
-                    toq1.SetAttributeValue("Text", RemoveTags(textOfQuestion.Remove(index, textOfQuestion.IndexOf(">", index) - index + 1)));
+                    toq1.SetAttributeValue("SymplyText", RemoveTags(textOfQuestion.Remove(index, textOfQuestion.IndexOf(">", index) - index + 1)));
 
                     var toqimg = new XElement("TextOfQuestion");
                     toqimg.SetAttributeValue("SymplyText", "");
@@ -153,7 +173,7 @@ namespace QuestionEditor
                 }
                 else
                 {
-                    toq1.SetAttributeValue("Text", RemoveTags(textOfQuestion));
+                    toq1.SetAttributeValue("SymplyText", RemoveTags(textOfQuestion));
                     toq1.SetAttributeValue("Image", "");
                 }
 

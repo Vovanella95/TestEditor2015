@@ -49,7 +49,7 @@
                 </Grid>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15,0,0,0" Name="MiddleEditor" IsEnabled="False" Width="388">
                     <StackPanel>
-                        <TextBox x:Name="questionTitle" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333"/>
+                        <TextBox x:Name="questionTitle" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="21.333"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,5,0,0">
                             <Button Width="30" Height="30" Background="WhiteSmoke" BorderBrush="#FFCFCFCF" FontWeight="Bold" Click="Button_Click_4" >
                                 <Image  Width="15" Height="15" Source="/QuestionEditor;component/Images/glyphicons-103-bold.png"/>

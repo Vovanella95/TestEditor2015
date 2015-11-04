@@ -40,7 +40,6 @@ namespace QuestionEditor
         {
             InitializeComponent();
             FixProperties();
-
             Preambula = new List<Tuple<string, string>>();
             LoadPreambula();
             UpdateRemarks();
@@ -152,7 +151,6 @@ namespace QuestionEditor
                 yn.ShowDialog();
                 Hider.Visibility = Visibility.Hidden;
             }
-
         }
 
         bool hidden = false;
@@ -264,13 +262,14 @@ namespace QuestionEditor
             choise.ShowDialog();
             Hider.Visibility = Visibility.Hidden;
             QuestionText.Text = QuestionText.Text.Insert(QuestionText.CaretIndex, choise.result);
+            Images.AddRange(choise.Images);
         }
 
         private void image_Click(object sender, RoutedEventArgs e)
         {
             var od = new OpenFileDialog();
-            od.Filter = "Bitmap Image (.bmp)|*.bmp|Gif Image (.gif)|*.gif|JPEG Image (.jpeg)|*.jpeg|JPG Image (.jpg)|*.jpg|Png Image (.png)|*.png|Tiff Image (.tiff)|*.tiff|Wmf Image (.wmf)|*.wmf";
             od.ShowDialog();
+            if (string.IsNullOrEmpty(od.FileName)) return;
             QuestionText.Text += "\n[Image src=\"" + od.FileName + "\"]\n";
         }
 
@@ -463,7 +462,9 @@ namespace QuestionEditor
 
         private string GetValue(string src, string name)
         {
+            if (src.IndexOf(name) == -1) return null;
             int ind = src.IndexOf('\"', src.IndexOf(name));
+            if (ind < 0) return null;
             return src.Substring(ind + 1, src.IndexOf('\"', ind + 1) - ind - 1);
         }
 
@@ -472,6 +473,7 @@ namespace QuestionEditor
             var choiseUnit = new XElement("ChoiceUnit");
             choiseUnit.SetAttributeValue("Text", GetValue(src, "Text"));
             choiseUnit.SetAttributeValue("Value", GetValue(src, "Value"));
+            choiseUnit.SetAttributeValue("Image", GetValue(src, "Image"));
             return choiseUnit;
         }
 
@@ -506,7 +508,17 @@ namespace QuestionEditor
                 {
                     ind--;
                 }
-                File.Copy(image, newurl + "\\" + TestName + "\\" + filename, true);
+                try
+                {
+                    File.Copy(image, newurl + "\\" + TestName + "\\" + filename, true);
+                }
+                catch (Exception ex)
+                {
+                    Hider.Visibility = Visibility.Visible;
+                    OkMessage yn = new OkMessage("Ошибка копирования", "Изображение не найдено. Файл может отображаться некорекнто. \nОшибка \"" + ex.Message + "\"");
+                    yn.ShowDialog();
+                    Hider.Visibility = Visibility.Hidden;
+                }
             }
         }
 
@@ -537,16 +549,13 @@ namespace QuestionEditor
             }
             test.Add(preambula);
 
-            var question = new XElement("Question");
             int ind = 0;
             foreach (Question item in Questions.Items)
             {
-                question.Add(QuestionToElement(item, ind));
+                test.Add(QuestionToElement(item, ind));
                 ind++;
             }
             test.SetAttributeValue("NumberOfQuestions", ind);
-            test.Add(question);
-
             test.Save(sd.FileName);
             WriteImages(sd.FileName);
         }
@@ -734,11 +743,15 @@ namespace QuestionEditor
 
         private string ChoiseToHtml(XElement choise)
         {
-            string ch = "\n<div class=\"choiser\">";
+            string ch = "\n<hr /><div class=\"choiser\">";
 
             foreach (var item in choise.Elements("ChoiseUnit").Elements())
             {
                 ch += "<input type=\"checkbox\">" + item.Attribute("Text").Value + "</br>\n";
+                if (!string.IsNullOrEmpty(item.Attribute("Image").Value))
+                {
+                    ch += "<img src=\"" + TestName + "/" + item.Attribute("Image").Value + "\" Height=\"100\" /><br />\n";
+                }
             }
             return ch + "</div>\n";
         }
@@ -957,7 +970,7 @@ namespace QuestionEditor
         private void LoadQuestions(XElement root)
         {
             NumberOfQuestions = 0;
-            var questions = root.Descendants("Question").Skip(1).ToArray();
+            var questions = root.Descendants("Question").ToArray();
             foreach (var q in questions)
             {
                 NumberOfQuestions++;
@@ -973,7 +986,14 @@ namespace QuestionEditor
         {
             var question = new Question();
             question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value;
-            question.Difficulty = Convert.ToInt32(q.Attribute("Difficulty").Value);
+            if (q.Attribute("Difficulty") != null)
+            {
+                question.Difficulty = Convert.ToInt32(q.Attribute("Difficulty").Value);
+            }
+            else
+            {
+                question.Difficulty = 1;
+            }
             question.Content = NumberOfQuestions + ". " + question.Title;
             question.Selected += Question_Selected;
             var text = "[Difficulty = \"" + question.Difficulty + "\"]\n";
@@ -996,7 +1016,7 @@ namespace QuestionEditor
         private string ToqToText(XElement toq)
         {
             // if toq is text
-            if (!string.IsNullOrEmpty(toq.Attribute("SymplyText").Value))
+            if (toq.Attribute("SymplyText") != null && !string.IsNullOrEmpty(toq.Attribute("SymplyText").Value))
             {
                 return "\n" + toq.Attribute("SymplyText").Value + "\n";
             }
@@ -1006,15 +1026,15 @@ namespace QuestionEditor
             {
                 var dirName = CurrentFileName;
                 int i = dirName.Length - 1;
-                while(dirName[i]!='\\')
+                while (dirName[i] != '\\')
                 {
                     i--;
                 }
                 dirName = dirName.Substring(i);
                 dirName = dirName.Substring(0, dirName.IndexOf('.'));
 
-                Images.Add(CurrentDirectory + toq.Attribute("Image").Value);
-                return "\n[Image src=\"" + CurrentDirectory + dirName.Replace("\\","") + "\\" + toq.Attribute("Image").Value + "\"]\n";
+                Images.Add(CurrentDirectory + dirName.Replace("\\", "") + "\\" + toq.Attribute("Image").Value);
+                return "\n[Image src=\"" + CurrentDirectory + dirName.Replace("\\", "") + "\\" + toq.Attribute("Image").Value + "\"]\n";
             }
 
             // of toq is input
@@ -1032,18 +1052,41 @@ namespace QuestionEditor
                 return "";
             }
             string text = "[Choice\n";
-
-            text += "[IsRandom = \"" + choice.Element("ChoiseUnit").Attribute("IsRandom").Value + "\"]\n";
+            if (choice.Element("ChoiseUnit").Attribute("IsRandom") != null)
+            {
+                text += "[IsRandom = \"" + choice.Element("ChoiseUnit").Attribute("IsRandom").Value + "\"]\n";
+            }
+            else
+            {
+                text += "[IsRandom = \"True\"]\n";
+            }
 
             foreach (var item in choice.Element("ChoiseUnit").Elements())
             {
-                text += "[Text = \"" + item.Attribute("Text").Value + "\" Value = \"" + item.Attribute("Value").ToString() + "]\n";
+                text += "[Text = \"" + item.Attribute("Text").Value +
+                    "\" Value = \"" + item.Attribute("Value").ToString() +
+                    "\" Image = \"" + (item.Attribute("Image") == null ? "" : item.Attribute("Image").Value) + "\"]\n";
+                if (item.Attribute("Image") != null && !string.IsNullOrEmpty(item.Attribute("Image").Value))
+                {
+                    var dirName = CurrentFileName;
+                    int i = dirName.Length - 1;
+                    while (dirName[i] != '\\')
+                    {
+                        i--;
+                    }
+                    dirName = dirName.Substring(i);
+                    dirName = dirName.Substring(0, dirName.IndexOf('.'));
+
+                    Images.Add(CurrentDirectory + dirName.Replace("\\", "") + "\\" + item.Attribute("Image").Value);
+                }
             }
             return text + "]\n";
         }
 
         private void LoadRemarks(XElement preambula)
         {
+            if (preambula == null) return;
+
             foreach (var item in preambula.Elements())
             {
                 Preambula.Add(new Tuple<string, string>(item.Attribute("Name").Value, item.Attribute("Value").Value));
