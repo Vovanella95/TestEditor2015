@@ -18,27 +18,10 @@ namespace QuestionEditor
         /// <returns>returns collection of strings</returns>
         IEnumerable<string> Split(string str, string separator)
         {
-            int pos = 0;
-            int ind = str.IndexOf(separator);
-            while (ind != -1)
-            {
-                if (ind == 0)
-                {
-                    yield return "";
-                    pos = separator.Length;
-                    ind = str.IndexOf(separator, pos + 1);
-                    yield return str.Substring(pos, ind - pos);
-                    pos = ind;
-                    ind = str.IndexOf(separator, pos + 1);
-                }
-                else
-                {
-                    yield return str.Substring(pos + separator.Length, ind - pos - separator.Length);
-                    pos = ind;
-                    ind = str.IndexOf(separator, pos + 1);
-                }
-            }
-            yield return str.Substring(pos + separator.Length);
+            string[] stringSeparators = new string[] { separator };
+            string[] result;
+            result = str.Split(stringSeparators, StringSplitOptions.None);
+            return result;
         }
 
         /// <summary>
@@ -94,8 +77,6 @@ namespace QuestionEditor
             XElement chun = new XElement("ChoiseUnit");
             choice.Add(chun);
 
-
-
             if (inputWords.Any(w => w.Answer == '1'))
             {
                 ques.SetAttributeValue("NumberOfTexts", 1);
@@ -104,7 +85,6 @@ namespace QuestionEditor
                     var chun1 = new XElement("ChoiseUnit");
                     chun1.SetAttributeValue("Value", item.Answer == '0' ? "false" : "true");
                     chun1.SetAttributeValue("Text", RemoveTags(item.Text.Trim(((char)0x01))));
-
 
                     var t = RemoveTags(item.Text.Trim(((char)0x01)));
                     var text = item.Text;
@@ -179,7 +159,7 @@ namespace QuestionEditor
 
                 var text2 = str.Split('\n')[6];
                 text2 = text2.Substring(1, text2.Length - 4);
-                bool isInput = true;
+                bool isInput = text2.Substring(0,4) == "<%s>";
                 int code = 1;
                 int numberOfInputWord = 0;
                 int numberOfQues = 0;

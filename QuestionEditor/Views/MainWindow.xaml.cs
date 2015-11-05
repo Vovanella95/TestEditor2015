@@ -647,31 +647,37 @@ namespace QuestionEditor
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
-            var tempFileName = Directory.GetCurrentDirectory();
-            var test = new XElement("Test");
-            test.SetAttributeValue("TestName", tempFileName + "test.xml");
-
-            var question = new XElement("Question");
-            int ind = 0;
-            foreach (Question item in Questions.Items)
+            try
             {
-                question.Add(QuestionToElement(item, ind));
-                ind++;
-            }
-            test.SetAttributeValue("NumberOfQuestions", ind);
-            test.Add(question);
-            test.Save(tempFileName + "test.xml");
-            WriteImages(tempFileName + "test.xml");
-            var text = XmlToHtml(tempFileName + "test.xml");
+                var tempFileName = Directory.GetCurrentDirectory();
+                var test = new XElement("Test");
+                test.SetAttributeValue("TestName", tempFileName + "test.xml");
 
-            using (var sw = new StreamWriter(tempFileName + "test.html"))
+                var question = new XElement("Question");
+                int ind = 0;
+                foreach (Question item in Questions.Items)
+                {
+                    question.Add(QuestionToElement(item, ind));
+                    ind++;
+                }
+                test.SetAttributeValue("NumberOfQuestions", ind);
+                test.Add(question);
+                test.Save(tempFileName + "test.xml");
+                WriteImages(tempFileName + "test.xml");
+                var text = XmlToHtml(tempFileName + "test.xml");
+
+                using (var sw = new StreamWriter(tempFileName + "test.html"))
+                {
+                    sw.Write(text);
+                }
+
+                File.Copy(Directory.GetCurrentDirectory() + "\\Data\\style.css", tempFileName + "test\\style.css", true);
+
+                System.Diagnostics.Process.Start(tempFileName + "test.html");
+            }catch(Exception ex)
             {
-                sw.Write(text);
+                OkMessage a = new OkMessage("Ошибка препросмотра", "При попытке препросмотра возникла ошибка.\n Message: " + ex.Message);
             }
-
-            File.Copy(Directory.GetCurrentDirectory() + "\\Data\\style.css", tempFileName + "test\\style.css", true);
-
-            System.Diagnostics.Process.Start(tempFileName + "test.html");
         }
 
         private string XmlToHtml(string path)
