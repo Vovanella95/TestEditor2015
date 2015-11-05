@@ -1023,8 +1023,6 @@ namespace QuestionEditor
             {
                 nextIndex = "[IndexOfNextQuestion Index=\"" + q.Attribute("IndexOfNextQuestion").Value + "\"]";
             }
-
-
             question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value.Trim();
             if (q.Attribute("Difficulty") != null)
             {

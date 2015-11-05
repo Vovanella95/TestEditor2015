@@ -208,7 +208,6 @@ namespace QuestionEditor
         public void Dowork(string inputFile, string outputFile)
         {
             var demo = new StreamReader(inputFile).ReadToEnd();
-            var d = demo[0];
 
             List<string> list = new List<string>();
 
@@ -223,13 +222,11 @@ namespace QuestionEditor
 
                 ind2 = demo.IndexOf((char)11, ind);
             }
-
             XElement root = new XElement("Test");
 
             var preambula = new XElement("Preambula");
             var title = new XElement("PreambulaItem");
             title.SetAttributeValue("Name", "Название");
-
 
             var tt = demo.Split('\n').ElementAt(1).Replace((char)18, ' ').Trim();
             title.SetAttributeValue("Value", tt);
