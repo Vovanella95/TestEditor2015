@@ -244,7 +244,7 @@ namespace QuestionEditor
         private void input_Click(object sender, RoutedEventArgs e)
         {
             int pos = QuestionText.CaretIndex;
-            QuestionText.Text = QuestionText.Text.Insert(pos, "[Input Text=\"...\"]");
+            QuestionText.Text = QuestionText.Text.Insert(pos, "[Input Text=\"\"]");
         }
 
         private string RemakeTitle(string str)
@@ -254,6 +254,12 @@ namespace QuestionEditor
                 return str.Substring(0, 25) + "...";
             }
             return str;
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            int pos = QuestionText.CaretIndex;
+            QuestionText.Text = QuestionText.Text.Insert(pos, "[IndexOfNextQuestion Index=\"\"]");
         }
 
         private void choise_Click(object sender, RoutedEventArgs e)
@@ -342,27 +348,33 @@ namespace QuestionEditor
                 }
 
                 //If input is come
-                if (item.Substring(0, 6) == "[Input")
+                if (item.Length >= 6 && item.Substring(0, 6) == "[Input")
                 {
                     toq.Add(InputToString(item, ind));
                 }
 
                 //If Image is come
-                if (item.Substring(0, 6) == "[Image")
+                if (item.Length >= 6 && item.Substring(0, 6) == "[Image")
                 {
                     toq.Add(ImageToString(item, ind));
                 }
 
 
-                if (item.Substring(0, 7) == "[Choice")
+                if (item.Length >= 7 && item.Substring(0, 7) == "[Choice")
                 {
                     choise.Add(ChoiseToString(item));
                     ind--;
                 }
 
-                if (item.Substring(0, 11) == "[Difficulty")
+                if (item.Length >= 11 && item.Substring(0, 11) == "[Difficulty")
                 {
                     a.SetAttributeValue("Difficulty", GetValue(item, "Difficulty"));
+                    ind--;
+                }
+
+                if (item.Length >= 20 && item.Substring(0, 20) == "[IndexOfNextQuestion")
+                {
+                    a.SetAttributeValue("IndexOfNextQuestion", GetValue(item, "Index"));
                     ind--;
                 }
 
@@ -676,7 +688,8 @@ namespace QuestionEditor
                 File.Copy(Directory.GetCurrentDirectory() + "\\Data\\bg.jpg", tempFileName + "test\\bg.jpg", true);
 
                 System.Diagnostics.Process.Start(tempFileName + "test.html");
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Hider.Visibility = Visibility.Visible;
                 OkMessage a = new OkMessage("Ошибка препросмотра", "При попытке препросмотра возникла ошибка.\n Message: " + ex.Message);
@@ -1005,6 +1018,13 @@ namespace QuestionEditor
         private Question XmlToQuestion(XElement q, int id)
         {
             var question = new Question();
+            var nextIndex = "";
+            if (q.Attribute("IndexOfNextQuestion") != null)
+            {
+                nextIndex = "[IndexOfNextQuestion Index=\"" + q.Attribute("IndexOfNextQuestion").Value + "\"]";
+            }
+
+
             question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value.Trim();
             if (q.Attribute("Difficulty") != null)
             {
@@ -1017,7 +1037,7 @@ namespace QuestionEditor
             question.Content = NumberOfQuestions + ". " + RemakeTitle(question.Title);
             question.Selected += Question_Selected;
             question.Number = id;
-            var text = "[Difficulty = \"" + question.Difficulty + "\"]\n";
+            var text = "[Difficulty = \"" + question.Difficulty + "\"]\n" + nextIndex + "\n";
 
 
             //Adding toq

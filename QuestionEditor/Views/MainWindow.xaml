@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuestionEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="738.89" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Icon="/QuestionEditor;component/Images/logo.PNG" MouseDown="window_MouseDown" WindowStyle="None">
+        Title="MainWindow" Height="738.89" Width="1093" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Icon="/QuestionEditor;component/Images/logo.PNG" MouseDown="window_MouseDown" WindowStyle="None">
     <Grid Name="MainGrid">
         <Grid.Background>
             <ImageBrush ImageSource="/QuestionEditor;component/Images/white_and_grey_triangles_detail.jpg"/>
@@ -50,7 +50,7 @@
                         <Button x:Name="button3" Content="&lt;" VerticalAlignment="Center" HorizontalAlignment="Left" Width="15" Height="75" Background="White" Margin="-1,0,0,0" Click="button3_Click" BorderBrush="#FFF1F1F1" Foreground="#FFACACAC"/>
                     </StackPanel>
                 </Grid>
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15,0,0,0" Name="MiddleEditor" IsEnabled="False" Width="388">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15,0,0,0" Name="MiddleEditor" IsEnabled="False" Width="469">
                     <StackPanel>
                         <TextBox x:Name="questionTitle" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="21.333"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,5,0,0">
@@ -126,6 +126,7 @@
                                 <Button x:Name="input" Content="Текст" VerticalAlignment="Top" Width="83" Height="40" Click="input_Click"/>
                                 <Button x:Name="image" Content="Картинка" VerticalAlignment="Top" Width="75" Height="40" Click="image_Click"/>
                                 <Button x:Name="choise" Content="Выбор" VerticalAlignment="Top" Width="79" Height="40" Click="choise_Click"/>
+                                <Button Content="След. вопрос" Width="85" Click="Button_Click_10" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <Button x:Name="button2" Content="Сохранить" Width="94" Click="button2_Click" Background="#FF6BBF6B" Foreground="White" Height="40" VerticalAlignment="Top"/>
