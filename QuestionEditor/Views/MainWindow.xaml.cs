@@ -151,6 +151,7 @@ namespace QuestionEditor
                 yn.ShowDialog();
                 Hider.Visibility = Visibility.Hidden;
             }
+
         }
 
         bool hidden = false;
@@ -672,11 +673,15 @@ namespace QuestionEditor
                 }
 
                 File.Copy(Directory.GetCurrentDirectory() + "\\Data\\style.css", tempFileName + "test\\style.css", true);
+                File.Copy(Directory.GetCurrentDirectory() + "\\Data\\bg.jpg", tempFileName + "test\\bg.jpg", true);
 
                 System.Diagnostics.Process.Start(tempFileName + "test.html");
             }catch(Exception ex)
             {
+                Hider.Visibility = Visibility.Visible;
                 OkMessage a = new OkMessage("Ошибка препросмотра", "При попытке препросмотра возникла ошибка.\n Message: " + ex.Message);
+                a.ShowDialog();
+                Hider.Visibility = Visibility.Hidden;
             }
         }
 
@@ -692,7 +697,16 @@ namespace QuestionEditor
                 html += QuestionToHtml(item, ind);
                 ind++;
             }
-            return "<html><head><meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" href=\"" + TestName + "/style.css\"></head><body style=\"background:#DDDDDD\"><header>TEST - предпросмотр</header> " + html + " </body></html>";
+
+            var preambulaShit = "\n\n<div class=\"forpreambula\">\n";
+            foreach (var item in Preambula)
+            {
+                preambulaShit += "<div class=\"forpreambulaitem\"><b>" + item.Item1 + "</b> : " + item.Item2 + "</div>\n";
+            }
+
+            preambulaShit += "</div>\n\n";
+
+            return "<html><head><meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" href=\"" + TestName + "/style.css\"></head><body><header>TEST - предпросмотр</header> " + preambulaShit + html + " </body></html>";
         }
 
         private string QuestionToHtml(XElement question, int num)
@@ -991,7 +1005,7 @@ namespace QuestionEditor
         private Question XmlToQuestion(XElement q, int id)
         {
             var question = new Question();
-            question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value;
+            question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value.Trim();
             if (q.Attribute("Difficulty") != null)
             {
                 question.Difficulty = Convert.ToInt32(q.Attribute("Difficulty").Value);
@@ -1000,8 +1014,9 @@ namespace QuestionEditor
             {
                 question.Difficulty = 1;
             }
-            question.Content = NumberOfQuestions + ". " + question.Title;
+            question.Content = NumberOfQuestions + ". " + RemakeTitle(question.Title);
             question.Selected += Question_Selected;
+            question.Number = id;
             var text = "[Difficulty = \"" + question.Difficulty + "\"]\n";
 
 
@@ -1053,7 +1068,7 @@ namespace QuestionEditor
 
         private string ChoiseToText(XElement choice)
         {
-            if (!choice.HasElements)
+            if (!choice.HasElements || !choice.Elements().First().HasElements)
             {
                 return "";
             }
@@ -1101,7 +1116,6 @@ namespace QuestionEditor
         }
 
         #endregion
-
     }
 
 

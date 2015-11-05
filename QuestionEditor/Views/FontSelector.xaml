@@ -8,6 +8,9 @@
         Title="Введите размер шрифта" Height="150" Width="300" Background="#FFEEEEEE" WindowStyle="None" ResizeMode="NoResize">
     <Grid>
         <StackPanel>
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/QuestionEditor;component/Images/white_and_grey_triangles_detail.jpg"/>
+            </StackPanel.Background>
             <Grid Height="40" Background="#FF3A3A3A" VerticalAlignment="Top">
                 <TextBlock Text="Выберите шрифт" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="10,0,0,0"/>
             </Grid>

@@ -18,10 +18,7 @@ namespace QuestionEditor
         /// <returns>returns collection of strings</returns>
         IEnumerable<string> Split(string str, string separator)
         {
-            string[] stringSeparators = new string[] { separator };
-            string[] result;
-            result = str.Split(stringSeparators, StringSplitOptions.None);
-            return result;
+            return str.Split(new string[] { separator }, StringSplitOptions.None);
         }
 
         /// <summary>
@@ -88,7 +85,7 @@ namespace QuestionEditor
 
                     var t = RemoveTags(item.Text.Trim(((char)0x01)));
                     var text = item.Text;
-                    if(text.Contains("<IMG"))
+                    if (text.Contains("<IMG"))
                     {
                         int ind = text.IndexOf("src=");
                         while (text[ind] != '\"') ind++;
@@ -159,7 +156,7 @@ namespace QuestionEditor
 
                 var text2 = str.Split('\n')[6];
                 text2 = text2.Substring(1, text2.Length - 4);
-                bool isInput = text2.Substring(0,4) == "<%s>";
+                bool isInput = text2.Substring(0, 4) == "<%s>";
                 int code = 1;
                 int numberOfInputWord = 0;
                 int numberOfQues = 0;
@@ -227,7 +224,27 @@ namespace QuestionEditor
                 ind2 = demo.IndexOf((char)11, ind);
             }
 
-            XElement root = new XElement("Root");
+            XElement root = new XElement("Test");
+
+            var preambula = new XElement("Preambula");
+            var title = new XElement("PreambulaItem");
+            title.SetAttributeValue("Name", "Название");
+
+
+            var tt = demo.Split('\n').ElementAt(1).Replace((char)18, ' ').Trim();
+            title.SetAttributeValue("Value", tt);
+
+            var theme = new XElement("PreambulaItem");
+            theme.SetAttributeValue("Name", "Тема");
+
+            var ttt = demo.Split('\n').ElementAt(2).Replace((char)19, ' ').Trim();
+            theme.SetAttributeValue("Value", ttt);
+
+            preambula.Add(title);
+            preambula.Add(theme);
+            root.Add(preambula);
+
+
             foreach (var item in list)
             {
                 root.Add(ParseString(item));

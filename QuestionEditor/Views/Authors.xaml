@@ -13,6 +13,9 @@
                 <Button HorizontalAlignment="Right" Content="x" Height="30" Width="30" Margin="0,0,5,0" BorderBrush="{x:Null}" Foreground="White" Background="#FFE63939" Click="Button_Click"/>
             </Grid>
             <Grid Name="MainGrid" Height="350">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/QuestionEditor;component/Images/white_and_grey_triangles_detail.jpg"/>
+                </Grid.Background>
                 <StackPanel Orientation="Horizontal" Height="300" HorizontalAlignment="Center">
                     <StackPanel Width="200" Background="White">
                         <TextBlock Text="Владимир Полюхович" HorizontalAlignment="Center" Margin="0,5,0,0"/>

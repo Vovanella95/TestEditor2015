@@ -1,23 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Test TestName="C:\Users\Uladzimir_Paliukhovi\Documents\TestEditor2015\QuestionEditor\bin\Debugtest.xml" NumberOfQuestions="43">
   <Question>
-    <Question Code="0" Difficulty="1" NumberOfTexts="7">
+    <Question Code="0" Difficulty="1" NumberOfTexts="6">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 01. Граф - это ...  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 01. Граф - это ..." Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="динамическая" />
         <TextOfQuestion SymplyText="   структура, образованная объектами   " Image="" Input="" Code="3" />
         <TextOfQuestion SymplyText="" Image="" Code="4" Input="двух" />
         <TextOfQuestion SymplyText="   видов " Image="" Input="" Code="5" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="6" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
     <Question Code="1" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 02. Какие виды объектов образуют структуру данных Граф ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 02. Какие виды объектов образуют структуру данных Граф ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -37,7 +34,7 @@
     </Question>
     <Question Code="2" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 03. Какие виды объектов образуют структуру данных Граф ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 03. Какие виды объектов образуют структуру данных Граф ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -59,7 +56,7 @@
     </Question>
     <Question Code="3" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 04. Какова особенность ориентированных графов по сравнению с неориентированными ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 04. Какова особенность ориентированных графов по сравнению с неориентированными ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -76,7 +73,7 @@
     </Question>
     <Question Code="4" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 05. Какое из понятий &quot;Граф&quot; или &quot;Дерево&quot; более общее ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 05. Какое из понятий &quot;Граф&quot; или &quot;Дерево&quot; более общее ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -97,7 +94,7 @@
     </Question>
     <Question Code="5" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 06. Можно ли утверждать, что ориентированный Граф является Деревом ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 06. Можно ли утверждать, что ориентированный Граф является Деревом ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -116,7 +113,7 @@
     </Question>
     <Question Code="6" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 07. По отношению к объектам Графа какого множества относится понятие &quot;инцидентности&quot; ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 07. По отношению к объектам Графа какого множества относится понятие &quot;инцидентности&quot; ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -133,7 +130,7 @@
     </Question>
     <Question Code="7" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 08. По отношению к объектам Графа какого множества относится понятие &quot;смежности&quot; ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 08. По отношению к объектам Графа какого множества относится понятие &quot;смежности&quot; ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -150,7 +147,7 @@
     </Question>
     <Question Code="8" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 09. В чём особенность ориентированных мультиграфов ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 09. В чём особенность ориентированных мультиграфов ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -166,7 +163,7 @@
     </Question>
     <Question Code="9" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 10. Какими свойствами обладает симметричный граф ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 10. Какими свойствами обладает симметричный граф ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -183,23 +180,20 @@
         </ChoiseUnit>
       </Choice>
     </Question>
-    <Question Code="10" Difficulty="1" NumberOfTexts="7">
+    <Question Code="10" Difficulty="1" NumberOfTexts="6">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 11. Орграф - это ... " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 11. Орграф - это ..." Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="ориентированный,направленный" />
         <TextOfQuestion SymplyText="   граф, то есть, граф, узлы которого связаны   " Image="" Input="" Code="3" />
         <TextOfQuestion SymplyText="" Image="" Code="4" Input="дугами" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="5" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="6" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="11" Difficulty="1" NumberOfTexts="9">
+    <Question Code="11" Difficulty="1" NumberOfTexts="8">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 12. Полный граф - это ... " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 12. Полный граф - это ..." Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  (какой ?)   " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="ориентированный,направленный" />
         <TextOfQuestion SymplyText="   граф, в котором всякая пара (чего ?)   " Image="" Input="" Code="3" />
@@ -207,15 +201,12 @@
         <TextOfQuestion SymplyText="   соединена   " Image="" Input="" Code="5" />
         <TextOfQuestion SymplyText="" Image="" Code="6" Input="дугой" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="7" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="8" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
     <Question Code="12" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 13. Какое из свойств более общее: свойство полноты или свойство симметричности ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 13. Какое из свойств более общее: свойство полноты или свойство симметричности ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -230,9 +221,9 @@
         </ChoiseUnit>
       </Choice>
     </Question>
-    <Question Code="13" Difficulty="1" NumberOfTexts="11">
+    <Question Code="13" Difficulty="1" NumberOfTexts="10">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 14. Полустепенью захода вершины (узла) Х графа G(U, D) называется  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 14. Полустепенью захода вершины (узла) Х графа G(U, D) называется" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  число (чего ?)   " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="дуг" />
         <TextOfQuestion SymplyText="   (что делающих ?)   " Image="" Input="" Code="3" />
@@ -242,15 +233,12 @@
         <TextOfQuestion SymplyText="   вершин   " Image="" Input="" Code="7" />
         <TextOfQuestion SymplyText="" Image="" Code="8" Input="у" />
         <TextOfQuestion SymplyText="   Х " Image="" Input="" Code="9" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="10" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="14" Difficulty="1" NumberOfTexts="11">
+    <Question Code="14" Difficulty="1" NumberOfTexts="10">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 15. Полустепенью исхода вершины (узла) Х графа G(U, D) называется  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 15. Полустепенью исхода вершины (узла) Х графа G(U, D) называется" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  число (чего ?)   " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="дуг" />
         <TextOfQuestion SymplyText="   (что делающих ?)   " Image="" Input="" Code="3" />
@@ -260,15 +248,12 @@
         <TextOfQuestion SymplyText="   вершин   " Image="" Input="" Code="7" />
         <TextOfQuestion SymplyText="" Image="" Code="8" Input="ы" />
         <TextOfQuestion SymplyText="   Х " Image="" Input="" Code="9" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="10" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="15" Difficulty="1" NumberOfTexts="9">
+    <Question Code="15" Difficulty="1" NumberOfTexts="8">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 16. Степенью вершины (узла) Х графа G(U, D) называется  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 16. Степенью вершины (узла) Х графа G(U, D) называется" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  общее число (чего ?)   " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="дуг" />
         <TextOfQuestion SymplyText="   (каких ?)   " Image="" Input="" Code="3" />
@@ -276,57 +261,45 @@
         <TextOfQuestion SymplyText="   вершине   " Image="" Input="" Code="5" />
         <TextOfQuestion SymplyText="" Image="" Code="6" Input="X" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="7" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="8" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="16" Difficulty="1" NumberOfTexts="7">
+    <Question Code="16" Difficulty="1" NumberOfTexts="6">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 17. По приведенной схеме-рисунку графа, определите полустепень захода вершины G   " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 17. По приведенной схеме-рисунку графа, определите полустепень захода вершины G" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040605151546.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="  Полустепень захода вершины G =   " Image="" Input="" Code="3" />
         <TextOfQuestion SymplyText="" Image="" Code="4" Input="0/0/3" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="5" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="6" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="17" Difficulty="1" NumberOfTexts="7">
+    <Question Code="17" Difficulty="1" NumberOfTexts="6">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 18. По приведенной схеме-рисунку графа, определите полустепень исхода вершины F   " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 18. По приведенной схеме-рисунку графа, определите полустепень исхода вершины F" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040605151546.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="  Полустепень исхода вершины F =   " Image="" Input="" Code="3" />
         <TextOfQuestion SymplyText="" Image="" Code="4" Input="0/0/1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="5" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="6" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="18" Difficulty="1" NumberOfTexts="7">
+    <Question Code="18" Difficulty="1" NumberOfTexts="6">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 19. По приведенной схеме-рисунку графа, определите степень вершины В   " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 19. По приведенной схеме-рисунку графа, определите степень вершины В" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040605151546.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="  Степень вершины B =   " Image="" Input="" Code="3" />
         <TextOfQuestion SymplyText="" Image="" Code="4" Input="4" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="5" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="6" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="19" Difficulty="1" NumberOfTexts="9">
+    <Question Code="19" Difficulty="1" NumberOfTexts="8">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 20. По приведенной схеме-рисунку графа, определите ту вершину графа, которая имеет наибольшую степень  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 20. По приведенной схеме-рисунку графа, определите ту вершину графа, которая имеет наибольшую степень" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040605151546.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="  Наибольшую степень имеет вершина   " Image="" Input="" Code="3" />
@@ -334,15 +307,12 @@
         <TextOfQuestion SymplyText="  . Она равна (укажите числом)   " Image="" Input="" Code="5" />
         <TextOfQuestion SymplyText="" Image="" Code="6" Input="5" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="7" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="8" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
     <Question Code="20" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 21. Какая вершина графа называется вершиной входом ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 21. Какая вершина графа называется вершиной входом ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -359,7 +329,7 @@
     </Question>
     <Question Code="21" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 22. Какая вершина графа называется вершиной входом ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 22. Какая вершина графа называется вершиной входом ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -377,7 +347,7 @@
     </Question>
     <Question Code="22" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 23. Какая вершина графа называется вершиной выходом ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 23. Какая вершина графа называется вершиной выходом ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -394,7 +364,7 @@
     </Question>
     <Question Code="23" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 24. Какая вершина графа называется вершиной выходом ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 24. Какая вершина графа называется вершиной выходом ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -412,7 +382,7 @@
     </Question>
     <Question Code="24" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 25. Укажите схемы-рисунки тех графов, которые имеют вершины начала " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 25. Укажите схемы-рисунки тех графов, которые имеют вершины начала" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -429,7 +399,7 @@
     </Question>
     <Question Code="25" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 26. Укажите схемы-рисунки тех графов, которые не имеют вершины конца " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 26. Укажите схемы-рисунки тех графов, которые не имеют вершины конца" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -444,9 +414,9 @@
         </ChoiseUnit>
       </Choice>
     </Question>
-    <Question Code="26" Difficulty="1" NumberOfTexts="17">
+    <Question Code="26" Difficulty="1" NumberOfTexts="16">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 27. Имеет ли граф, изображенный на приведённой ниже схеме-рисунке, вершину начала и конца ?  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 27. Имеет ли граф, изображенный на приведённой ниже схеме-рисунке, вершину начала и конца ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040607092330.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="       Примечание: Если ответ относительно какой-нибудь из вершин будет отрицательным, в                          соответствующей позиции названия узла внести текст &quot; - &quot; (прочерк, минус).  " Image="" Input="" Code="3" />
@@ -462,15 +432,12 @@
         <TextOfQuestion SymplyText="  . Вершина конца =   " Image="" Input="" Code="13" />
         <TextOfQuestion SymplyText="" Image="" Code="14" Input="A" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="15" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="16" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="27" Difficulty="1" NumberOfTexts="17">
+    <Question Code="27" Difficulty="1" NumberOfTexts="16">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 28. Имеет ли граф, изображенный на приведённой ниже схеме-рисунке, вершину начала и конца ?  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 28. Имеет ли граф, изображенный на приведённой ниже схеме-рисунке, вершину начала и конца ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040607093242.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="       Примечание: Если ответ относительно какой-нибудь из вершин будет отрицательным, в                          соответствующей позиции названия узла внести текст &quot; - &quot; (прочерк, минус).  " Image="" Input="" Code="3" />
@@ -486,15 +453,12 @@
         <TextOfQuestion SymplyText="  . Вершина конца =   " Image="" Input="" Code="13" />
         <TextOfQuestion SymplyText="" Image="" Code="14" Input=" -" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="15" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="16" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="28" Difficulty="1" NumberOfTexts="17">
+    <Question Code="28" Difficulty="1" NumberOfTexts="16">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 29. Имеет ли граф, изображенный на приведённой ниже схеме-рисунке, вершину начала и конца ?  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 29. Имеет ли граф, изображенный на приведённой ниже схеме-рисунке, вершину начала и конца ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040607093526.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText="       Примечание: Если ответ относительно какой-нибудь из вершин будет отрицательным, в                          соответствующей позиции названия узла внести текст &quot; - &quot; (прочерк, минус).  " Image="" Input="" Code="3" />
@@ -510,15 +474,12 @@
         <TextOfQuestion SymplyText="  . Вершина конца =   " Image="" Input="" Code="13" />
         <TextOfQuestion SymplyText="" Image="" Code="14" Input="-" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="15" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="16" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
     <Question Code="29" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 30. Какой граф называется нагруженным ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 30. Какой граф называется нагруженным ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -535,7 +496,7 @@
     </Question>
     <Question Code="30" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 31. Что такое сеть ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 31. Что такое сеть ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -552,7 +513,7 @@
     </Question>
     <Question Code="31" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 32. Путём из узла А в узел В графа называется ... " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 32. Путём из узла А в узел В графа называется ..." Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -571,7 +532,7 @@
     </Question>
     <Question Code="32" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 33. Какой граф называется циклическим ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 33. Какой граф называется циклическим ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -588,7 +549,7 @@
     </Question>
     <Question Code="33" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 34. Что означает утверждение о том, что граф G(U, D) ацикличен ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 34. Что означает утверждение о том, что граф G(U, D) ацикличен ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -605,7 +566,7 @@
     </Question>
     <Question Code="34" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 35. Какими специальными свойствами может обладать понятие &quot;путь графа&quot; ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 35. Какими специальными свойствами может обладать понятие &quot;путь графа&quot; ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -624,7 +585,7 @@
     </Question>
     <Question Code="35" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 36. Какими специальными свойствами может обладать понятие &quot;путь графа&quot; ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 36. Какими специальными свойствами может обладать понятие &quot;путь графа&quot; ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -642,7 +603,7 @@
     </Question>
     <Question Code="36" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 37. Какими специальными свойствами может обладать понятие &quot;путь графа&quot; ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 37. Какими специальными свойствами может обладать понятие &quot;путь графа&quot; ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -660,7 +621,7 @@
     </Question>
     <Question Code="37" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 38. Какое из понятий более общее: понятие &quot;дерево&quot; или понятие &quot;граф&quot; ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 38. Какое из понятий более общее: понятие &quot;дерево&quot; или понятие &quot;граф&quot; ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -679,7 +640,7 @@
     </Question>
     <Question Code="38" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 39. Какими особыми свойствами обладает связный граф ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 39. Какими особыми свойствами обладает связный граф ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
@@ -694,23 +655,20 @@
         </ChoiseUnit>
       </Choice>
     </Question>
-    <Question Code="39" Difficulty="1" NumberOfTexts="7">
+    <Question Code="39" Difficulty="1" NumberOfTexts="6">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 40. Длиной пути из вершины А в вершину В графа называется число... " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 40. Длиной пути из вершины А в вершину В графа называется число..." Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="дуг" />
         <TextOfQuestion SymplyText="  , образующих этот   " Image="" Input="" Code="3" />
         <TextOfQuestion SymplyText="" Image="" Code="4" Input="путь" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="5" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="6" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
-    <Question Code="40" Difficulty="1" NumberOfTexts="9">
+    <Question Code="40" Difficulty="1" NumberOfTexts="8">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 41. Дерево - это ... " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 41. Дерево - это ..." Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  (какой ?)   " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="" Code="2" Input="связный" />
         <TextOfQuestion SymplyText="   граф, содержащий N вершин и (сколько ?)   " Image="" Input="" Code="3" />
@@ -718,15 +676,12 @@
         <TextOfQuestion SymplyText="   (чего ?)   " Image="" Input="" Code="5" />
         <TextOfQuestion SymplyText="" Image="" Code="6" Input="ребер" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="7" />
-        <TextOfQuestion SymplyText=" " Image="" Input="" Code="8" />
       </TextOfQuestion>
-      <Choice>
-        <ChoiseUnit IsRandom="True" />
-      </Choice>
+      <Choice />
     </Question>
     <Question Code="41" Difficulty="1" NumberOfTexts="5">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 42. Является ли граф, изображенный на схеме-рисунке приведенной ниже, деревом ?  " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 42. Является ли граф, изображенный на схеме-рисунке приведенной ниже, деревом ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText="  " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText="" Image="рисунок_20040607120041.jpg" Input="" Code="2" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="3" />
@@ -747,7 +702,7 @@
     </Question>
     <Question Code="42" Difficulty="1" NumberOfTexts="3">
       <TextOfQuestion>
-        <TextOfQuestion SymplyText="    ATD_Graph 43. Укажите, какие из приведенных ниже схем-рисунков иллюстрирующих графы, являются деревьями ? " Image="" Input="" Code="0" />
+        <TextOfQuestion SymplyText="ATD_Graph 43. Укажите, какие из приведенных ниже схем-рисунков иллюстрирующих графы, являются деревьями ?" Image="" Input="" Code="0" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="1" />
         <TextOfQuestion SymplyText=" " Image="" Input="" Code="2" />
       </TextOfQuestion>
