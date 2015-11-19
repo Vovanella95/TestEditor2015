@@ -327,7 +327,7 @@ namespace QuestionEditor
 
         private XElement QuestionToElement(Question src, int code)
         {
-            var elements = SplitText(src.Text).Select(w => w.Replace("\n", " ").Replace("\r", "")).Where(w => w != "").ToArray();
+            var elements = SplitText(src.Text).Select(w => w.Replace("\n", "\n<br/>").Replace("\r", "").Replace("  ", "&nbsp;")).Where(w => w != "").ToArray();
             XElement a = new XElement("Question");
             a.SetAttributeValue("Code", code);
             a.SetAttributeValue("Difficulty", 1);
@@ -762,7 +762,7 @@ namespace QuestionEditor
             // for input
             if (textOfQuestion.Attribute("Input").Value != string.Empty)
             {
-                return "\t<input type=\"text\" class=\"toqsubmit\" Value=\"\"/>";
+                return "\t<input type=\"text\" class=\"toqsubmit\" Value=\"" + textOfQuestion.Attribute("Input").Value + "\"/>";
             }
 
             // for image
@@ -780,7 +780,7 @@ namespace QuestionEditor
 
             foreach (var item in choise.Elements("ChoiseUnit").Elements())
             {
-                ch += "<input type=\"checkbox\">" + item.Attribute("Text").Value + "</br>\n";
+                ch += "<input type=\"checkbox\" " + (item.Attribute("Value").Value == "True" ? "checked" : "") + ">" + item.Attribute("Text").Value + "</br>\n";
                 if (!string.IsNullOrEmpty(item.Attribute("Image").Value))
                 {
                     ch += "<img src=\"" + TestName + "/" + item.Attribute("Image").Value + "\" Height=\"100\" /><br />\n";
@@ -1023,7 +1023,7 @@ namespace QuestionEditor
             {
                 nextIndex = "[IndexOfNextQuestion Index=\"" + q.Attribute("IndexOfNextQuestion").Value + "\"]";
             }
-            question.Title = q.Element("TextOfQuestion").Element("TextOfQuestion").Attribute("SymplyText").Value.Trim();
+            question.Title = q.Descendants("TextOfQuestion").First().Element("TextOfQuestion").Attribute("SymplyText").Value.Trim();
             if (q.Attribute("Difficulty") != null)
             {
                 question.Difficulty = Convert.ToInt32(q.Attribute("Difficulty").Value);
@@ -1039,17 +1039,26 @@ namespace QuestionEditor
 
 
             //Adding toq
-            var toq = q.Element("TextOfQuestion").Elements().Skip(1).ToArray();
+            var toq = q.Descendants("TextOfQuestion").First().Elements().Skip(1).ToArray();
             foreach (var item in toq)
             {
                 text += ToqToText(item);
             }
 
             // Adding choice
-            text += ChoiseToText(q.Element("Choice"));
+            var ch = q.Descendants("Choice");
+            if (ch.Count() != 0)
+            {
+                text += ChoiseToText(ch.First());
+            }
 
             question.Text = text;
             return question;
+        }
+
+        private string RemakeText(string src)
+        {
+            return src.Replace("&nbsp;", " ").Replace("<br/>", "\n");
         }
 
         private string ToqToText(XElement toq)
@@ -1057,7 +1066,7 @@ namespace QuestionEditor
             // if toq is text
             if (toq.Attribute("SymplyText") != null && !string.IsNullOrEmpty(toq.Attribute("SymplyText").Value))
             {
-                return "\n" + toq.Attribute("SymplyText").Value + "\n";
+                return RemakeText(toq.Attribute("SymplyText").Value);
             }
 
             // of toq is image
@@ -1073,13 +1082,13 @@ namespace QuestionEditor
                 dirName = dirName.Substring(0, dirName.IndexOf('.'));
 
                 Images.Add(CurrentDirectory + dirName.Replace("\\", "") + "\\" + toq.Attribute("Image").Value);
-                return "\n[Image src=\"" + CurrentDirectory + dirName.Replace("\\", "") + "\\" + toq.Attribute("Image").Value + "\"]\n";
+                return "\n[Image src=\"" + CurrentDirectory + dirName.Replace("\\", "") + "\\" + toq.Attribute("Image").Value + "\"]";
             }
 
             // of toq is input
             if (!string.IsNullOrEmpty(toq.Attribute("Input").Value))
             {
-                return "\n[Input Text=\"" + toq.Attribute("Input").Value + "\"]\n";
+                return " [Input Text=\"" + toq.Attribute("Input").Value + "\"] ";
             }
             throw new Exception("Unknown element");
         }

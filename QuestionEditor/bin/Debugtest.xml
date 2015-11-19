@@ -4,9 +4,17 @@
     <Question Code="0" Difficulty="1" NumberOfTexts="2">
       <TextOfQuestion>
         <TextOfQuestion SymplyText="Новый вопрос" Image="" Input="" Code="0" />
-        <TextOfQuestion SymplyText=" Текст вопроса  &lt;style&gt; .textofquestion : hover { background-color:red; } &lt;/style&gt;" Image="" Input="" Code="1" />
+        <TextOfQuestion SymplyText=" &lt;br/&gt;Текст вопроса" Image="" Input="" Code="1" />
       </TextOfQuestion>
-      <Choice />
+      <Choice>
+        <ChoiseUnit IsRandom="True">
+          <ChoiceUnit Text="Новый элемент" Value="False" Image="" />
+          <ChoiceUnit Text="Новый элемент" Value="True" Image="" />
+          <ChoiceUnit Text="Новый элемент" Value="True" Image="" />
+          <ChoiceUnit Text="Новый элемент" Value="False" Image="" />
+          <ChoiceUnit Text="Новый элемент" Value="True" Image="" />
+        </ChoiseUnit>
+      </Choice>
     </Question>
   </Question>
 </Test>
